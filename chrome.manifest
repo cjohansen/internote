@@ -1,0 +1,18 @@
+content internote  chrome/chromeFiles/content/
+overlay chrome://browser/content/browser.xul chrome://internote/content/internote.xul
+
+locale internote en-US chrome/chromeFiles/locale/en-US/
+locale internote fr chrome/chromeFiles/locale/fr/
+locale internote it chrome/chromeFiles/locale/it/
+locale internote pt-BR chrome/chromeFiles/locale/pt-BR/
+locale internote da chrome/chromeFiles/locale/da/
+locale internote zh-CN chrome/chromeFiles/locale/zh-CN/
+locale internote es-ES chrome/chromeFiles/locale/es-ES/
+locale internote de chrome/chromeFiles/locale/de/
+locale internote sl chrome/chromeFiles/locale/sl/
+locale internote sk chrome/chromeFiles/locale/sk/
+locale internote nl chrome/chromeFiles/locale/nl/
+locale internote hr-HR chrome/chromeFiles/locale/hr-HR/
+
+skin internote classic/1.0 chrome/chromeFiles/skin/
+style chrome://global/content/customizeToolbar.xul chrome://internote/skin/overlay.css

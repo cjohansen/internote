@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://internote/skin/overlay.css" type="text/css"?>
+<?xml-stylesheet href="chrome://internote/skin/overlay_mac.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://internote/locale/menu.dtd">
+
+<overlay id="internote" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml">
+<script type="application/x-javascript" src="chrome://internote/content/internote-content.js"></script>
+<script type="application/x-javascript" src="chrome://internote/content/internote-animation.js"></script>
+<script type="application/x-javascript" src="chrome://internote/content/internote-preferences.js"></script>
+<script type="application/x-javascript" src="chrome://internote/content/internote-extension.js"></script>
+<script type="application/x-javascript" src="chrome://internote/content/internote-hashing.js"></script>
+
+<commandset id="mainCommandSet">
+    <command id="cmd_newSticky" oncommand="newSticky()" />
+    <command id="cmd_showInternoteManger" oncommand="window.openDialog('chrome://internote/content/internote-manager.xul', 'internotemanager', 'chrome, all', window);" />
+</commandset>
+
+<keyset id="mainKeyset">
+    <key id="newnote-key" key="i" command="cmd_newSticky" modifiers="alt" />
+</keyset>
+
+<menupopup id="menu_ToolsPopup">
+    <menuseparator id="internote-tools-sep" insertafter="menu_preferences" />
+    <menuitem accesskey="N" key="newnote-key" label="&newnote.label;" command="cmd_newSticky"/>
+    <menuitem accesskey="M" label="&internote.manager.title;..." command="cmd_showInternoteManger"/>
+</menupopup>
+
+<toolbarpalette id="BrowserToolbarPalette">
+    <toolbarbutton id="newInternoteButton" class="toolbarbutton-1 chromeclass-toolbar-additional" label="&newnote.label;" command="cmd_newSticky" tooltiptext="&newnote.tooltip;" />
+</toolbarpalette>
+
+<popupset id="mainPopupSet">
+	<tooltip id="internote-popup" insertafter="backMenu">
+		<vbox flex="1">
+			<label id="internote-popup-label" value="0 Internotes"/>
+		</vbox>
+	</tooltip>
+	<popup id="internote-context-menu">
+		<menuitem label="&newnote.label;" oncommand="newSticky()" />
+		<menuitem label="&internote.manager.title;..." oncommand="window.openDialog('chrome://internote/content/internote-manager.xul', 'internotemanager', 'centerscreen, chrome, all, modal');" />
+		<menuitem label="&noteprefs.label;..." oncommand="window.openDialog('chrome://internote/content/internote-preferences.xul', 'internoteprefs', 'centerscreen, all, dialog=no', window);" />
+		<menuseparator />
+		<!--<menuitem label="Toggle All Notes" oncommand="alert('Windowshade Not Yet Implemented!')" />-->
+		<menuitem id="internote-disable-label" label="&internote.disable.label;" oncommand="disableInternote()" />
+	</popup>
+</popupset>
+
+<statusbar id="status-bar">
+    <statusbarpanel class="statusbarpanel-iconic" id="internote-panel" label="&newnote.label;" src="chrome://internote/content/newnote16.png" onclick="if (!event.button) newSticky();" context="internote-context-menu" tooltip="internote-popup" />
+</statusbar>
+
+<stringbundleset id="stringbundleset">
+	<stringbundle id="internote-strings" src="chrome://internote/locale/internote.properties"/>
+</stringbundleset>
+
+</overlay>

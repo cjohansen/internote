@@ -1,0 +1,53 @@
+<!ENTITY prefsheader.label "Internote">
+<!ENTITY styleheader.label "Slog opomnika">
+<!ENTITY generalheader.label "Splošne nastavitve">
+<!ENTITY positionheader.label "Nastavitve položaja">
+<!ENTITY defaultcolor.label "Privzeta barva opomnika">
+<!ENTITY defaulttextcolor.label "Privzeta barva besedila">
+<!ENTITY defaultsize.label "Privzeta velikost opomnika">
+<!ENTITY defaultpos.label "Privzeti položaj opomnika">
+<!ENTITY defaulttrans.label "Prosojni opomniki">
+<!ENTITY useanimation.label "Animiraj opomnike">
+<!ENTITY defaulthighlightable.label "Osvetljeni opomniki (uporaba robu za premikanje)">
+<!ENTITY usescrollbar.label "Uporabi drsnik">
+<!ENTITY usestatusbar.label "Pokaži Internote v vrstici stanja">
+<!ENTITY banana.label "Banana">
+<!ENTITY melon.label "Melona">
+<!ENTITY blueberry.label "Borovnica">
+<!ENTITY lime.label "Limeta">
+<!ENTITY grape.label "Grozdje">
+<!ENTITY cauliflower.label "Cvetača">
+<!ENTITY charcoal.label "Oglje">
+<!ENTITY topsoil.label "Prst">
+<!ENTITY grass.label "Trava">
+<!ENTITY rose.label "Vrtnica">
+<!ENTITY aluminum.label "Aluminij">
+<!ENTITY snow.label "Sneg">
+<!ENTITY topleft.label "Zgoraj levo">
+<!ENTITY topright.label "Zgoraj desno">
+<!ENTITY bottomleft.label "Spodaj levo">
+<!ENTITY bottomright.label "Spodaj desno">
+<!ENTITY center.label "Sredinsko">
+<!ENTITY tinysize.label "Majhna">
+<!ENTITY normalsize.label "Običajna">
+<!ENTITY largesize.label "Velika">
+<!ENTITY giantsize.label "Ogromna">
+<!ENTITY internote.manager.title "Upravljalec Internote">
+<!ENTITY internote.list.title "Opomniki">
+<!ENTITY internote.search.title "Iskanje">
+<!ENTITY internote.searchresults.title "Rezultati iskanja">
+<!ENTITY internote.ok.button "V redu">
+<!ENTITY internote.cancel.button "Prekliči">
+<!ENTITY internote.underdev.value "v razvoju">
+<!ENTITY internote.data.label "Podatki opomnika">
+<!ENTITY internote.go.label "Pojdi na stran ...">
+<!ENTITY internote.noteurl "URL opomnika">
+<!ENTITY internote.notetext "Besedilo opomnika">
+<!ENTITY internote.notecolor "Barva opomnika">
+<!ENTITY internote.textcolor "Barva besedila">
+<!ENTITY internote.noteactions.label "Dejanja opomnika">
+<!ENTITY internote.delete.label "Izbriši opomnik">
+<!ENTITY internote.print.label "Natisni opomnike">
+<!ENTITY internote.resetloc.label "Ponastavi mesto">
+<!ENTITY internote.export.label "Izvozi opomnike">
+<!ENTITY preferences.save.label "Shrani">

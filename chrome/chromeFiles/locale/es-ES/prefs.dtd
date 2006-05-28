@@ -1,0 +1,53 @@
+<!ENTITY prefsheader.label "Internote">
+<!ENTITY styleheader.label "Estilo de nota">
+<!ENTITY generalheader.label "Preferencias generales">
+<!ENTITY positionheader.label "Preferencias de posición">
+<!ENTITY defaultcolor.label "Color predeterminado de nota">
+<!ENTITY defaulttextcolor.label "Color predeterminado de texto">
+<!ENTITY defaultsize.label "Tamaño predeterminado de nota">
+<!ENTITY defaultpos.label "Posición predeterminada de nota">
+<!ENTITY defaulttrans.label "Notas translúcidas">
+<!ENTITY useanimation.label "Notas animadas">
+<!ENTITY defaulthighlightable.label "Texto seleccionable (usar borde para moverlas)">
+<!ENTITY usescrollbar.label "Usar barra desplazamiento">
+<!ENTITY usestatusbar.label "Mostrar Internote en barra de estado">
+<!ENTITY banana.label "Plátano">
+<!ENTITY melon.label "Melón">
+<!ENTITY blueberry.label "Arándano">
+<!ENTITY lime.label "Lima">
+<!ENTITY grape.label "Uva">
+<!ENTITY cauliflower.label "Coliflor">
+<!ENTITY charcoal.label "Carbón">
+<!ENTITY topsoil.label "Tierra">
+<!ENTITY grass.label "Hierba">
+<!ENTITY rose.label "Rosa">
+<!ENTITY aluminum.label "Aluminio">
+<!ENTITY snow.label "Nieve">
+<!ENTITY topleft.label "Arriba-izquierda">
+<!ENTITY topright.label "Arriba-derecha">
+<!ENTITY bottomleft.label "Abajo-izquierda">
+<!ENTITY bottomright.label "Abajo-derecha">
+<!ENTITY center.label "Centro">
+<!ENTITY tinysize.label "Pequeño">
+<!ENTITY normalsize.label "Normal">
+<!ENTITY largesize.label "Grande">
+<!ENTITY giantsize.label "Gigante">
+<!ENTITY internote.manager.title "Administrador de Internote">
+<!ENTITY internote.list.title "Notas">
+<!ENTITY internote.search.title "Búsqueda">
+<!ENTITY internote.searchresults.title "Resultados búsqueda">
+<!ENTITY internote.ok.button "Aceptar">
+<!ENTITY internote.cancel.button "Cancelar">
+<!ENTITY internote.underdev.value "en desarrollo">
+<!ENTITY internote.data.label "Propiedades de la nota">
+<!ENTITY internote.go.label "Ir a página ...">
+<!ENTITY internote.noteurl "URL nota">
+<!ENTITY internote.notetext "Texto nota">
+<!ENTITY internote.notecolor "Color nota">
+<!ENTITY internote.textcolor "Color texto">
+<!ENTITY internote.noteactions.label "Acciones sobre la nota">
+<!ENTITY internote.delete.label "Borrar nota">
+<!ENTITY internote.print.label "Imprimir notas">
+<!ENTITY internote.resetloc.label "Reinicializar dirección">
+<!ENTITY internote.export.label "Exportar notas">
+<!ENTITY preferences.save.label "Guardar">

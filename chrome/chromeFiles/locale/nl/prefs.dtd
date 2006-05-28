@@ -1,0 +1,53 @@
+<!ENTITY prefsheader.label "Internote voorkeuren">
+<!ENTITY styleheader.label "Notitie stijl">
+<!ENTITY generalheader.label "Algemene voorkeuren">
+<!ENTITY positionheader.label "Positie voorkeuren">
+<!ENTITY defaultcolor.label "Standaard notitiekleur">
+<!ENTITY defaulttextcolor.label "Standaard tekstkleur">
+<!ENTITY defaultsize.label "Standaard afmetingen">
+<!ENTITY defaultpos.label "Standaard positie">
+<!ENTITY defaulttrans.label "Doorzichtige notities">
+<!ENTITY useanimation.label "Geanimeerde notities">
+<!ENTITY defaulthighlightable.label "Markeerbare notities (gebruik de rand om te verplaatsen)">
+<!ENTITY usescrollbar.label "Schuifbalk gebruiken">
+<!ENTITY usestatusbar.label "Internote in de statusbalk weergeven">
+<!ENTITY banana.label "Banaan">
+<!ENTITY melon.label "Meloen">
+<!ENTITY blueberry.label "Bosbes">
+<!ENTITY lime.label "Citroen">
+<!ENTITY grape.label "Druif">
+<!ENTITY cauliflower.label "Bloemkool">
+<!ENTITY charcoal.label "Houtskool">
+<!ENTITY topsoil.label "Bovengrond">
+<!ENTITY grass.label "Gras">
+<!ENTITY rose.label "Roos">
+<!ENTITY aluminum.label "Aluminium">
+<!ENTITY snow.label "Sneeuw">
+<!ENTITY topleft.label "Linksboven">
+<!ENTITY topright.label "Rechtsboven">
+<!ENTITY bottomleft.label "Linksonder">
+<!ENTITY bottomright.label "Rechtsonder">
+<!ENTITY center.label "Midden">
+<!ENTITY tinysize.label "Klein">
+<!ENTITY normalsize.label "Normaal">
+<!ENTITY largesize.label "Groot">
+<!ENTITY giantsize.label "Gigantisch">
+<!ENTITY internote.manager.title "Internote Beheerder">
+<!ENTITY internote.list.title "Notities">
+<!ENTITY internote.search.title "Zoeken">
+<!ENTITY internote.searchresults.title "Zoekresultaten">
+<!ENTITY internote.ok.button "OK">
+<!ENTITY internote.cancel.button "Annuleren">
+<!ENTITY internote.underdev.value "In ontwikkeling">
+<!ENTITY internote.data.label "Notitie gegevens">
+<!ENTITY internote.go.label "Ga naar pagina...">
+<!ENTITY internote.noteurl "Notitie adres">
+<!ENTITY internote.notetext "Notitie tekst">
+<!ENTITY internote.notecolor "Notitie kleur">
+<!ENTITY internote.textcolor "Tekstkleur">
+<!ENTITY internote.noteactions.label "Notitie acties">
+<!ENTITY internote.delete.label "Notitie verwijderen">
+<!ENTITY internote.print.label "Notities afdrukken">
+<!ENTITY internote.resetloc.label "Locatie herstellen">
+<!ENTITY internote.export.label "Notities exporteren">
+<!ENTITY preferences.save.label "Bewaren">

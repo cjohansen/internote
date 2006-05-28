@@ -1,0 +1,53 @@
+<!ENTITY prefsheader.label "Internote">
+<!ENTITY styleheader.label "Note-stil">
+<!ENTITY generalheader.label "Generelle indstillinger">
+<!ENTITY positionheader.label "Positioneringsindstillinger">
+<!ENTITY defaultcolor.label "Standard notefarve">
+<!ENTITY defaulttextcolor.label "Standard tekstfarve">
+<!ENTITY defaultsize.label "Standard notestørrelse">
+<!ENTITY defaultpos.label "Standard noteplacering">
+<!ENTITY defaulttrans.label "Gennemsigtige noter">
+<!ENTITY useanimation.label "Animer noter">
+<!ENTITY defaulthighlightable.label "Fremhævbare noter (brug kanter til at flytte)">
+<!ENTITY usescrollbar.label "Brug scrollbar">
+<!ENTITY usestatusbar.label "Vis Internote i statuslinien">
+<!ENTITY banana.label "Banan">
+<!ENTITY melon.label "Melon">
+<!ENTITY blueberry.label "Blåbær">
+<!ENTITY lime.label "Lime">
+<!ENTITY grape.label "Grape">
+<!ENTITY cauliflower.label "Svamp">
+<!ENTITY charcoal.label "Trækul">
+<!ENTITY topsoil.label "Muldjord">
+<!ENTITY grass.label "Græs">
+<!ENTITY rose.label "Rose">
+<!ENTITY aluminum.label "Aluminium">
+<!ENTITY snow.label "Sne">
+<!ENTITY topleft.label "Øverst-venstre">
+<!ENTITY topright.label "Øverst-højre">
+<!ENTITY bottomleft.label "Nederst-venstre">
+<!ENTITY bottomright.label "Nederst-højre">
+<!ENTITY center.label "Midtfor">
+<!ENTITY tinysize.label "Lille">
+<!ENTITY normalsize.label "Normal">
+<!ENTITY largesize.label "Stor">
+<!ENTITY giantsize.label "Kæmpe">
+<!ENTITY internote.manager.title "Internote Administration">
+<!ENTITY internote.list.title "Noter">
+<!ENTITY internote.search.title "Søg">
+<!ENTITY internote.searchresults.title "Søgeresultater">
+<!ENTITY internote.ok.button "OK">
+<!ENTITY internote.cancel.button "Annuller">
+<!ENTITY internote.underdev.value "under udvikling">
+<!ENTITY internote.data.label "Notedata">
+<!ENTITY internote.go.label "Gå til side...">
+<!ENTITY internote.noteurl "Note URL">
+<!ENTITY internote.notetext "Note tekst">
+<!ENTITY internote.notecolor "Note farve">
+<!ENTITY internote.textcolor "Tekstfarve">
+<!ENTITY internote.noteactions.label "Notehandlinger">
+<!ENTITY internote.delete.label "Slet note">
+<!ENTITY internote.print.label "Udskriv noter">
+<!ENTITY internote.resetloc.label "Nulstil placering">
+<!ENTITY internote.export.label "Eksportér noter">
+<!ENTITY preferences.save.label "Gem">

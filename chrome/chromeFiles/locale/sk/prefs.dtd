@@ -1,0 +1,53 @@
+<!ENTITY prefsheader.label "Internote">
+<!ENTITY styleheader.label "Štýl poznámky">
+<!ENTITY generalheader.label "Všeobecné nastavenia">
+<!ENTITY positionheader.label "Nastavenia pozície">
+<!ENTITY defaultcolor.label "Implicitná farba poznámky">
+<!ENTITY defaulttextcolor.label "Implicitná farba textu">
+<!ENTITY defaultsize.label "Implicitná veľkosť lístka">
+<!ENTITY defaultpos.label "Implicitná poloha lístka">
+<!ENTITY defaulttrans.label "Priesvitné lístky">
+<!ENTITY useanimation.label "Animovať lístky">
+<!ENTITY defaulthighlightable.label "Označovateľné poznámky (používať okraj na presunutie)">
+<!ENTITY usescrollbar.label "Používať posuvnú lištu">
+<!ENTITY usestatusbar.label "Zobraziť Internote v stavovom riadku">
+<!ENTITY banana.label "Banán">
+<!ENTITY melon.label "Melón">
+<!ENTITY blueberry.label "Čučoriedka">
+<!ENTITY lime.label "Limeta">
+<!ENTITY grape.label "Hrozno">
+<!ENTITY cauliflower.label "Karfiol">
+<!ENTITY charcoal.label "Drevené uhlie">
+<!ENTITY topsoil.label "Ornica">
+<!ENTITY grass.label "Tráva">
+<!ENTITY rose.label "Ruža">
+<!ENTITY aluminum.label "Hliník">
+<!ENTITY snow.label "Sneh">
+<!ENTITY topleft.label "Vľavo-hore">
+<!ENTITY topright.label "Vpravo-hore">
+<!ENTITY bottomleft.label "Vľavo-dole">
+<!ENTITY bottomright.label "Vpravo-dole">
+<!ENTITY center.label "V strede">
+<!ENTITY tinysize.label "Malý">
+<!ENTITY normalsize.label "Normálny">
+<!ENTITY largesize.label "Veľký">
+<!ENTITY giantsize.label "Obrovský">
+<!ENTITY internote.manager.title "Manažér Internote">
+<!ENTITY internote.list.title "Správy">
+<!ENTITY internote.search.title "Hľadať">
+<!ENTITY internote.searchresults.title "Výsledky hľadania">
+<!ENTITY internote.ok.button "OK">
+<!ENTITY internote.cancel.button "Zrušiť">
+<!ENTITY internote.underdev.value "vo vývoji">
+<!ENTITY internote.data.label "Dáta poznámky">
+<!ENTITY internote.go.label "Ísť na stránku...">
+<!ENTITY internote.noteurl "URL správy">
+<!ENTITY internote.notetext "Text správy">
+<!ENTITY internote.notecolor "Farba lístka">
+<!ENTITY internote.textcolor "Farba textu">
+<!ENTITY internote.noteactions.label "Akcie správy">
+<!ENTITY internote.delete.label "Zmazať správu">
+<!ENTITY internote.print.label "Vytalčiť správy">
+<!ENTITY internote.resetloc.label "Vynulovať polohu">
+<!ENTITY internote.export.label "Exportovať správy">
+<!ENTITY preferences.save.label "Uložiť">

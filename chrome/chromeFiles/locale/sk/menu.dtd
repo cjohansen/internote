@@ -1,0 +1,6 @@
+<!ENTITY newnote.label "Pridať novú Internote">
+<!ENTITY newnote.tooltip "Pridá novú Internote">
+<!ENTITY newnote.accesskey "P">
+<!ENTITY noteprefs.label "Nastavenia Internote">
+<!ENTITY internote.manager.title "Manažér Internote">
+<!ENTITY internote.disable.label "Zakázať Internote">

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://internote/locale/prefs.dtd">
+
+<dialog id="internoteManager"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="&internote.manager.title;"
+        onload="internoteManager.initInternoteManager();"
+        ondialogaccept="internoteManager.onDialogAccept()"
+        buttonlabelaccept="&internote.ok.button;"
+        buttonlabelcancel="&internote.cancel.button;"
+        persist="screenX screenY width height"
+        screenX="24" screenY="24" width="700px" height="500px">
+
+<script src="chrome://internote/content/internote-manager.js" />
+<script src="chrome://internote/content/internote-hashing.js" />
+<script src="chrome://global/content/printUtils.js" />
+        
+<label value="&internote.manager.title;" style="font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 5px;" />
+        
+<hbox flex="2">
+	<vbox flex="3">
+		<tree id="elementList" flex="2" onselect="internoteManager.loadData();">
+			<treecols>
+				<treecol id="element" label="&internote.list.title;" primary="true" flex="1"/>
+			</treecols>
+			<treechildren />
+		</tree>
+		<tree id="resultsList" flex="1" onselect="internoteManager.loadSearchData();" style="display: none;">
+			<treecols>
+				<treecol id="elementsr" label="&internote.searchresults.title;" primary="true" flex="1"/>
+			</treecols>
+			<treechildren id="searchResultChildren" />
+		</tree>
+		<groupbox>
+		<hbox style="width: 90%;" align="center">
+			<label control="searchFilter" value="&internote.search.title;:" style="font-weight: bold;" />
+			<textbox id="searchFilter" oninput="internoteManager.updateSearchResults()" flex="1" style="height: 2em;" />
+			<label value="X" style="background-color: lightgray; opacity: .75; width: 1.5em; height: 1.5em; text-align: center; padding-top: .1em;" onclick="document.getElementById('searchFilter').value=''; internoteManager.updateSearchResults();" />
+		</hbox>
+		</groupbox>
+		<hbox>
+			<button flex="1" id="printNotes" label="&internote.print.label;" style="font-weight: bold;" onclick="internoteManager.printNotes();"/>
+			<spacer flex="1" />
+			<!--<button flex="1" id="exportNotes" label="&internote.export.label;" style="font-weight: bold;" onclick="internoteManager.exportNotes()" />-->
+		</hbox>
+	</vbox>
+	<splitter />
+	<vbox flex="1">
+		<groupbox flex="2">
+		<caption label="&internote.data.label;"/>
+		
+		<hbox align="center">
+		<label control="noteURL" value="&internote.noteurl;:" style="font-weight: bold;" width="100px" />
+		<textbox id="noteURL" flex="1" onkeydown="setTimeout('internoteManager.updateCurrent()', 50);" disabled="true" />
+		<label value="&internote.go.label;" style="color: blue; text-decoration: underline;" onclick="internoteManager.openURL();" />
+		</hbox>
+		
+		<hbox flex="1">
+		<label control="noteText" value="&internote.notetext;:" style="font-weight: bold;" width="100px" />
+		<textbox id="noteText" flex="1" multiline="true" onkeydown="setTimeout('internoteManager.updateCurrent()', 50);" disabled="true" />
+		</hbox>
+		
+		<hbox align="center">
+            <label value="&internote.notecolor;:" control="colorEntryBox" style="font-weight: bold;" width="100px" />
+            <menulist id="colorEntryBox" flex="1" disabled="true">
+                <menupopup>
+                    <menuitem value="0" label="&banana.label;" />
+                    <menuitem value="1" label="&melon.label;" />
+                    <menuitem value="2" label="&blueberry.label;" />
+                    <menuitem value="3" label="&lime.label;" />
+                    <menuitem value="4" label="&grape.label;" />
+                    <menuitem value="5" label="&cauliflower.label;" />
+                </menupopup>
+            </menulist>
+        </hbox>
+        <hbox align="center">
+            <label value="&internote.textcolor;:" control="textColorEntryBox" style="font-weight: bold;" width="100px" />
+            <menulist id="textColorEntryBox" flex="1" disabled="true">
+                <menupopup>
+                    <menuitem value="0" label="&charcoal.label;" />
+                    <menuitem value="1" label="&topsoil.label;" />
+                    <menuitem value="2" label="&grass.label;" />
+                    <menuitem value="3" label="&rose.label;" />
+                    <menuitem value="4" label="&aluminum.label;" />
+                    <menuitem value="5" label="&snow.label;" />
+                </menupopup>
+            </menulist>
+        </hbox>
+		</groupbox>
+		
+		<groupbox>
+		<caption label="&internote.noteactions.label;"/>
+		<hbox>
+			<stack>
+				<button id="deleteNote" label="&internote.delete.label;" style="font-weight: bold;" onclick="internoteManager.deleteNote()" disabled="true" left="0px" />
+				<iframe style="width: 0px; height: 0px; opacity: 0;" id="printbrowser" left="0px" />
+			</stack>
+			<button id="resetNoteLoc" label="&internote.resetloc.label;" style="font-weight: bold;" onclick="internoteManager.resetNoteLocation()" disabled="true" />
+		</hbox>
+		</groupbox>
+	</vbox>
+</hbox>
+</dialog>

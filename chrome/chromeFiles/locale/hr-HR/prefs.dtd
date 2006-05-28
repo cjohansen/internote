@@ -1,0 +1,53 @@
+<!ENTITY prefsheader.label "Internote postavke">
+<!ENTITY styleheader.label "Stil bilješke">
+<!ENTITY generalheader.label "Općenite postavke">
+<!ENTITY positionheader.label "Postavke poziciranja">
+<!ENTITY defaultcolor.label "Zadana boja bilješke">
+<!ENTITY defaulttextcolor.label "Zadana boja teksta">
+<!ENTITY defaultsize.label "Zadana veličina bilješke">
+<!ENTITY defaultpos.label "Zadana pozicija bilješke">
+<!ENTITY defaulttrans.label "Prozirne bilješke">
+<!ENTITY useanimation.label "Animirane bilješke">
+<!ENTITY defaulthighlightable.label "Bilješke s mogućnošću isticanja (koristi rub za micanje)">
+<!ENTITY usescrollbar.label "Koristi klizač">
+<!ENTITY usestatusbar.label "Prikaži Internote u statusnoj traci">
+<!ENTITY banana.label "Banana">
+<!ENTITY melon.label "Dinja">
+<!ENTITY blueberry.label "Borovnica">
+<!ENTITY lime.label "Limeta">
+<!ENTITY grape.label "Grejp">
+<!ENTITY cauliflower.label "Cvjetača">
+<!ENTITY charcoal.label "Drveni ugljen">
+<!ENTITY topsoil.label "Zemlja">
+<!ENTITY grass.label "Trava">
+<!ENTITY rose.label "Ruža">
+<!ENTITY aluminum.label "Aluminij">
+<!ENTITY snow.label "Snijeg">
+<!ENTITY topleft.label "Gore-lijevo">
+<!ENTITY topright.label "Gore-desno">
+<!ENTITY bottomleft.label "Dolje-lijevo">
+<!ENTITY bottomright.label "Dolje-desno">
+<!ENTITY center.label "Centar">
+<!ENTITY tinysize.label "Mala">
+<!ENTITY normalsize.label "Normalna">
+<!ENTITY largesize.label "Velika">
+<!ENTITY giantsize.label "Ogromna">
+<!ENTITY internote.manager.title "Internote Upravitelj">
+<!ENTITY internote.list.title "Bilješke">
+<!ENTITY internote.search.title "Traži">
+<!ENTITY internote.searchresults.title "Rezultati traženja">
+<!ENTITY internote.ok.button "OK">
+<!ENTITY internote.cancel.button "Odustani">
+<!ENTITY internote.underdev.value "u razvoju">
+<!ENTITY internote.data.label "Podaci o bilješci">
+<!ENTITY internote.go.label "Idi na stranicu...">
+<!ENTITY internote.noteurl "Web adresa bilješke">
+<!ENTITY internote.notetext "Tekst bilješke">
+<!ENTITY internote.notecolor "Boja bilješke">
+<!ENTITY internote.textcolor "Boja teksta">
+<!ENTITY internote.noteactions.label "Radnje s bilješkom">
+<!ENTITY internote.delete.label "Obriši bilješku">
+<!ENTITY internote.print.label "Ispiši bilješke">
+<!ENTITY internote.resetloc.label "Vrati izvornu lokaciju">
+<!ENTITY internote.export.label "Izvezi bilješke">
+<!ENTITY preferences.save.label "Spremi">

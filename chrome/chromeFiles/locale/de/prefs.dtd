@@ -1,0 +1,53 @@
+<!ENTITY prefsheader.label "Internote">
+<!ENTITY styleheader.label "Notiz Stil">
+<!ENTITY generalheader.label "Allgemeine Einstellungen">
+<!ENTITY positionheader.label "Einstellungen zur Positionierung">
+<!ENTITY defaultcolor.label "Standart Notiz Farbe">
+<!ENTITY defaulttextcolor.label "Standart TextFarbe">
+<!ENTITY defaultsize.label "Standart Notiz Groesse">
+<!ENTITY defaultpos.label "Standart Notiz Position">
+<!ENTITY defaulttrans.label "Transparenz">
+<!ENTITY useanimation.label "Animation">
+<!ENTITY defaulthighlightable.label "Markierbarer Text (Rand zum Verschieben verwenden)">
+<!ENTITY usescrollbar.label "Verwende Scrollbar">
+<!ENTITY usestatusbar.label "Zeige Internote in Statusleiste">
+<!ENTITY banana.label "Banane">
+<!ENTITY melon.label "Melone">
+<!ENTITY blueberry.label "Blaubeere">
+<!ENTITY lime.label "Limette">
+<!ENTITY grape.label "Grapefruit">
+<!ENTITY cauliflower.label "Blumenkohl">
+<!ENTITY charcoal.label "Kohle">
+<!ENTITY topsoil.label "Erde">
+<!ENTITY grass.label "Grass">
+<!ENTITY rose.label "Rose">
+<!ENTITY aluminum.label "Aluminum">
+<!ENTITY snow.label "Schnee">
+<!ENTITY topleft.label "Oben-Links">
+<!ENTITY topright.label "Oben-Rechts">
+<!ENTITY bottomleft.label "Unten-Links">
+<!ENTITY bottomright.label "Unten-Rechts">
+<!ENTITY center.label "Zentriert">
+<!ENTITY tinysize.label "Klein">
+<!ENTITY normalsize.label "Normal">
+<!ENTITY largesize.label "Gross">
+<!ENTITY giantsize.label "Sehr gross">
+<!ENTITY internote.manager.title "Internote Manager">
+<!ENTITY internote.list.title "Notizen">
+<!ENTITY internote.search.title "Suche">
+<!ENTITY internote.searchresults.title "Suchergebnis">
+<!ENTITY internote.ok.button "OK">
+<!ENTITY internote.cancel.button "Abbrechen">
+<!ENTITY internote.underdev.value "in Entwicklung">
+<!ENTITY internote.data.label "Notizdaten">
+<!ENTITY internote.go.label "Geh zu Seite ..">
+<!ENTITY internote.noteurl "Notiz-URL">
+<!ENTITY internote.notetext "Notiztext">
+<!ENTITY internote.notecolor "Notizfarbe">
+<!ENTITY internote.textcolor "Textfarbe">
+<!ENTITY internote.noteactions.label "Notizaktionen">
+<!ENTITY internote.delete.label "Loesche Notiz">
+<!ENTITY internote.print.label "Drucke Notiz">
+<!ENTITY internote.resetloc.label "Ort zurücksetzen">
+<!ENTITY internote.export.label "Exortiere Notizen">
+<!ENTITY preferences.save.label "Speichern">

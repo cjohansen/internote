@@ -1,0 +1,6 @@
+<!ENTITY newnote.label "Dodaj novu bilješku">
+<!ENTITY newnote.tooltip "Dodaj novu bilješku">
+<!ENTITY newnote.accesskey "N">
+<!ENTITY noteprefs.label "Internote postavke">
+<!ENTITY internote.manager.title "Internote Upravitelj">
+<!ENTITY internote.disable.label "Onemogući Internote">
