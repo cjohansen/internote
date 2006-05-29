@@ -1,6 +1,7 @@
 <!ENTITY newnote.label "Nouvelle note">
 <!ENTITY newnote.tooltip "Coller une nouvelle note sur la page">
 <!ENTITY newnote.accesskey "N">
+<!ENTITY internote.manager.accesskey "M">
 <!ENTITY noteprefs.label "Préférences d&apos;Internote">
 <!ENTITY internote.manager.title "Gestionnaire d&apos;Internote">
 <!ENTITY internote.disable.label "Désactiver Internote">

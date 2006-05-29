@@ -23,8 +23,8 @@
 
 <menupopup id="menu_ToolsPopup">
     <menuseparator id="internote-tools-sep" insertafter="menu_preferences" />
-    <menuitem accesskey="N" key="newnote-key" label="&newnote.label;" command="cmd_newSticky"/>
-    <menuitem accesskey="M" label="&internote.manager.title;..." command="cmd_showInternoteManger"/>
+    <menuitem accesskey="&newnote.accesskey;" key="newnote-key" label="&newnote.label;" command="cmd_newSticky"/>
+    <menuitem accesskey="&internote.manager.accesskey;" label="&internote.manager.title;..." command="cmd_showInternoteManger"/>
 </menupopup>
 
 <toolbarpalette id="BrowserToolbarPalette">

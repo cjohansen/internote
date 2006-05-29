@@ -1,0 +1,53 @@
+<!ENTITY prefsheader.label "Настройки Internote">
+<!ENTITY styleheader.label "Стиль заметок">
+<!ENTITY generalheader.label "Основные предпочтения">
+<!ENTITY positionheader.label "Предпочтения размещения на экране">
+<!ENTITY defaultcolor.label "Цвет заметки по-умолчанию">
+<!ENTITY defaulttextcolor.label "Цвет текста по-умолчанию">
+<!ENTITY defaultsize.label "Размер заметки по-умолчанию">
+<!ENTITY defaultpos.label "Размещение заметки по-умолчанию">
+<!ENTITY defaulttrans.label "Прозрачные заметки">
+<!ENTITY useanimation.label "Анимированные заметки">
+<!ENTITY defaulthighlightable.label "Подсвеченные заметки (перемещать за рамку)">
+<!ENTITY usescrollbar.label "Использовать прокрутку">
+<!ENTITY usestatusbar.label "Показать Internote в строке состояния">
+<!ENTITY banana.label "Банан">
+<!ENTITY melon.label "Дыня">
+<!ENTITY blueberry.label "Черника">
+<!ENTITY lime.label "Лайм">
+<!ENTITY grape.label "Виноград">
+<!ENTITY cauliflower.label "Цветная капуста">
+<!ENTITY charcoal.label "Древесный уголь">
+<!ENTITY topsoil.label "Дёрн">
+<!ENTITY grass.label "Трава">
+<!ENTITY rose.label "Роза">
+<!ENTITY aluminum.label "Алюминий">
+<!ENTITY snow.label "Снег">
+<!ENTITY topleft.label "Вверху слева">
+<!ENTITY topright.label "Вверху справа">
+<!ENTITY bottomleft.label "Внизу слева">
+<!ENTITY bottomright.label "Внизу справа">
+<!ENTITY center.label "В центре">
+<!ENTITY tinysize.label "Маленький">
+<!ENTITY normalsize.label "Нормальный">
+<!ENTITY largesize.label "Большой">
+<!ENTITY giantsize.label "Очень большой">
+<!ENTITY internote.manager.title "Управление Internote">
+<!ENTITY internote.list.title "Заметки">
+<!ENTITY internote.search.title "Поиск">
+<!ENTITY internote.searchresults.title "Результаты поиска">
+<!ENTITY internote.ok.button "ОК">
+<!ENTITY internote.cancel.button "Отменить">
+<!ENTITY internote.underdev.value "в разработке">
+<!ENTITY internote.data.label "Данные заметки">
+<!ENTITY internote.go.label "Перейти на страницу...">
+<!ENTITY internote.noteurl "Заметка для URL">
+<!ENTITY internote.notetext "Текст заметки">
+<!ENTITY internote.notecolor "Цвет заметки">
+<!ENTITY internote.textcolor "Цвет текста">
+<!ENTITY internote.noteactions.label "Действия для заметки">
+<!ENTITY internote.delete.label "Удалить заметку">
+<!ENTITY internote.print.label "Напечатать заметку">
+<!ENTITY internote.resetloc.label "Вернуть местоположение">
+<!ENTITY internote.export.label "Экспорт заметок">
+<!ENTITY preferences.save.label "Сохранить">

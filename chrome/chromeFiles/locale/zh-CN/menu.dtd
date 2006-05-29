@@ -1,6 +1,7 @@
 <!ENTITY newnote.label "新建内部便签 (N)">
 <!ENTITY newnote.tooltip "新建内部便签">
 <!ENTITY newnote.accesskey "N">
+<!ENTITY internote.manager.accesskey "M">
 <!ENTITY noteprefs.label "内部便签选项">
 <!ENTITY internote.manager.title "内部便签管理器">
 <!ENTITY internote.disable.label "禁用内部便签">

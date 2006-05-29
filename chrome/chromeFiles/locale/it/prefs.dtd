@@ -1,4 +1,4 @@
-<!ENTITY prefsheader.label "Internote">
+<!ENTITY prefsheader.label "Opzioni di Internote">
 <!ENTITY styleheader.label "Stile nota">
 <!ENTITY generalheader.label "Opzioni generali">
 <!ENTITY positionheader.label "Opzioni posizionamento">
@@ -10,7 +10,7 @@
 <!ENTITY useanimation.label "Note animate">
 <!ENTITY defaulthighlightable.label "Testo selezionabile (utilizzare i bordi per trascinare la nota)">
 <!ENTITY usescrollbar.label "Barre di scorrimento">
-<!ENTITY usestatusbar.label "Visualizza nella barra di stato">
+<!ENTITY usestatusbar.label "Visualizza icona nella barra di stato">
 <!ENTITY banana.label "giallo banana">
 <!ENTITY melon.label "arancio melone">
 <!ENTITY blueberry.label "blu mirtillo">
@@ -32,9 +32,9 @@
 <!ENTITY normalsize.label "normale">
 <!ENTITY largesize.label "grande">
 <!ENTITY giantsize.label "grandissimo">
-<!ENTITY internote.manager.title "Opzioni di Internote">
-<!ENTITY internote.list.title "Note">
-<!ENTITY internote.search.title "Cerca">
+<!ENTITY internote.manager.title "Gestione Internote">
+<!ENTITY internote.list.title	"Note">
+<!ENTITY internote.search.title	"Cerca">
 <!ENTITY internote.searchresults.title "Risultati ricerca">
 <!ENTITY internote.ok.button "OK">
 <!ENTITY internote.cancel.button "Annulla">

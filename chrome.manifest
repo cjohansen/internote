@@ -13,6 +13,7 @@ locale internote sl chrome/chromeFiles/locale/sl/
 locale internote sk chrome/chromeFiles/locale/sk/
 locale internote nl chrome/chromeFiles/locale/nl/
 locale internote hr-HR chrome/chromeFiles/locale/hr-HR/
+locale internote ru chrome/chromeFiles/locale/ru/
 
 skin internote classic/1.0 chrome/chromeFiles/skin/
 style chrome://global/content/customizeToolbar.xul chrome://internote/skin/overlay.css
