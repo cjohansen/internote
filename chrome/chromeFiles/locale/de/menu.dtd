@@ -1,6 +1,7 @@
 <!ENTITY newnote.label "Neues Internote">
 <!ENTITY newnote.tooltip "Neues Internote">
 <!ENTITY newnote.accesskey "N">
+<!ENTITY internote.manager.accesskey "M">
 <!ENTITY noteprefs.label "Internote Einstellungen">
 <!ENTITY internote.manager.title "Internote Manager">
 <!ENTITY internote.disable.label "Internote ausschalten">
