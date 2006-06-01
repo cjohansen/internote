@@ -10,7 +10,6 @@
 <script type="application/x-javascript" src="chrome://internote/content/internote-animation.js"></script>
 <script type="application/x-javascript" src="chrome://internote/content/internote-preferences.js"></script>
 <script type="application/x-javascript" src="chrome://internote/content/internote-extension.js"></script>
-<script type="application/x-javascript" src="chrome://internote/content/internote-hashing.js"></script>
 
 <commandset id="mainCommandSet">
     <command id="cmd_newSticky" oncommand="newSticky()" />

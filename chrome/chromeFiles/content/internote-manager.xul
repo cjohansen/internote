@@ -13,7 +13,6 @@
         screenX="24" screenY="24" width="700px" height="500px">
 
 <script src="chrome://internote/content/internote-manager.js" />
-<script src="chrome://internote/content/internote-hashing.js" />
 <script src="chrome://global/content/printUtils.js" />
         
 <label value="&internote.manager.title;" style="font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 5px;" />
