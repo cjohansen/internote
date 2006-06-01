@@ -17,7 +17,6 @@ stickiesBackgroundColorSwabs : new Array("#FFFF99", "#FF9956", "#57BCD9", "#B0FF
 stickiesTextColorSwabs : new Array("#000000", "#7F5300", "#00FF00", "#FF0000", "#ADADAD", "#FFFFFF"),
 
 stickiesData : new Array(),
-filenameForURL : new Object(),
 searchMapping : new Array(),
 
 convertHexToCSS : function(color)

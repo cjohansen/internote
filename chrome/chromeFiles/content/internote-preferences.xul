@@ -8,6 +8,7 @@
   
   <prefpane id="internotePreferencesPane" label="&prefsheader.label;" image="chrome://internote/content/prefs.png">
     <preferences>
+      <preference id="fontSizePreference" name="internote.fontsize" type="string"/>
       <preference id="colorPreference" name="internote.defaultcolor" type="string"/>
       <preference id="textColorPreference" name="internote.defaulttextcolor" type="string"/>
       <preference id="defaultPositionPreference" name="internote.defaultposition" type="string"/>
@@ -56,6 +57,18 @@
                                 <menuitem value="1" label="&normalsize.label;" />
                                 <menuitem value="2" label="&largesize.label;" />
                                 <menuitem value="3" label="&giantsize.label;" />
+                            </menupopup>
+                        </menulist>
+                    </hbox>
+                    <hbox align="center">
+                        <label value="Default Font Size:" control="fontsizeEntryBox" style="width: 130px;" />
+                        <menulist id="fontsizeEntryBox" preference="fontSizePreference">
+                            <menupopup>
+                                <menuitem value="10" label="&tinysize.label;" />
+                                <menuitem value="12" label="&normalsize.label;" />
+                                <menuitem value="14" label="&largesize.label;" />
+                                <menuitem value="16" label="&giantsize.label;" />
+                                <menuitem value="18" label="&megasize.label;" />
                             </menupopup>
                         </menulist>
                     </hbox>

@@ -32,6 +32,7 @@
 <!ENTITY normalsize.label		"Normal">
 <!ENTITY largesize.label		"Large">
 <!ENTITY giantsize.label		"Giant">
+<!ENTITY megasize.label		"Mega">
 <!ENTITY internote.manager.title	"Internote Manager">
 <!ENTITY internote.list.title	"Notes">
 <!ENTITY internote.search.title	"Search">

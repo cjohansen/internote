@@ -2,6 +2,27 @@
 // 2006 - Tim Horton
 
 var internotePreferences = {
+	getFontSize : function()
+	{
+	    var prefs = Components.classes["@mozilla.org/preferences-service;1"].
+	                getService(Components.interfaces.nsIPrefService).
+	                getBranch("internote.");
+	    if(prefs.getPrefType("fontsize") !=0)
+	    {
+	        var defaultFontSize = prefs.getCharPref("fontsize");
+	        if(defaultFontSize == "10") return 10;
+	        if(defaultFontSize == "12") return 12;
+	        if(defaultFontSize == "14") return 14;
+	        if(defaultFontSize == "16") return 16;
+	        if(defaultFontSize == "18") return 18;
+	        return prefs.getCharPref("fontsize");
+	    }
+	    else
+	    {
+	        return 12;
+	    }
+	},
+	
 	getUseStatusbar : function()
 	{
 	    var prefs = Components.classes["@mozilla.org/preferences-service;1"].

@@ -154,7 +154,7 @@ function newStickyWithContents(stickytext, stickyleft, stickytop, stickywidth, s
     var specialHeight = parseInt(stickyheight, 10);
     
     var mainTextArea = document.createElementNS("http://www.w3.org/1999/xhtml", "html:textarea");
-    var textAreaStyle = "border: 1px none black; background: inherit; color: " + stickytextcolor + "; font-family: helvetica, sans-serif; font-size: 1em; width: 100%; height: " + (specialHeight - 19) + "px; ";
+    var textAreaStyle = "border: 1px none black; background: inherit; color: " + stickytextcolor + "; font-family: helvetica, sans-serif; font-size: " + internotePreferences.getFontSize() + "pt; width: 100%; height: " + (specialHeight - 19) + "px; ";
 
     if(!useScrollbar)
     	textAreaStyle += "overflow: hidden;";
