@@ -426,12 +426,16 @@ function saveOneSticky()
    			outputdata += cline + "\n";
    	}
    	        
-        var stream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
+    var stream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
+    
+    var convstream = Components.classes["@mozilla.org/intl/converter-output-stream;1"].createInstance(Components.interfaces.nsIConverterOutputStream);
 
-        var localfile = stickiesNSLocalFile(chromedir + "stickies");
-        stream.init(localfile, 0x02 | 0x08 | 0x20, 0664, 0);
-        stream.write(inputdata + outputdata, (inputdata + stickiesString).length);
-        stream.close();
+    var localfile = stickiesNSLocalFile(chromedir + "stickies");
+    stream.init(localfile, 0x02 | 0x08 | 0x20, 0664, 0);
+	convstream.init(stream, "UTF8", 0, 0x0000);
+    convstream.writeString(inputdata + outputdata);
+    convstream.close();
+    stream.close();
 
     stickiesDataArray = new Array();
     
@@ -501,11 +505,22 @@ function loadStickies(newLocation)
 		    {
 		    	var stream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
      
-    			var siStream = Components.classes['@mozilla.org/scriptableinputstream;1'].createInstance(Components.interfaces.nsIScriptableInputStream);
+    			//var siStream = Components.classes['@mozilla.org/scriptableinputstream;1'].createInstance(Components.interfaces.nsIScriptableInputStream);
+    			
+    			var siStream = Components.classes["@mozilla.org/intl/converter-input-stream;1"].createInstance(Components.interfaces.nsIConverterInputStream);
+
     
 				stream.init(localfile, 0x01, 0, 0);
-				siStream.init(stream);
-				var data = siStream.read(-1);
+				//siStream.init(stream);
+				siStream.init(stream, "UTF8", 1024, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+				//var data = siStream.read(-1);
+				var data = "";
+				
+				var str = {};
+				while (siStream.readString(4096, str) != 0)
+				{
+					data += str.value;
+				}
 				
 				var splitstickies = data.split("\n");
 				currentPage = "";
@@ -513,6 +528,7 @@ function loadStickies(newLocation)
 				for (var ssi in splitstickies)
 				{
 					var newloc = removeIndexes(newLocation);
+					//alert(splitstickies[ssi]);
 					var stickyloc = splitstickies[ssi].split("`")[0];
 					if(stickyloc != "")
 					{
@@ -544,6 +560,9 @@ function loadStickies(newLocation)
 				//alert("CPM: " + currentPageMatch);
 				keepLoadingStickies(localfile, newLocation);
 				//}
+				
+				siStream.close();
+				stream.close();
 			}
 		}
 	}    
@@ -554,14 +573,23 @@ function keepLoadingStickies(localfile, myurl)
 {   
 	var stream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
      
-    var siStream = Components.classes['@mozilla.org/scriptableinputstream;1'].createInstance(Components.interfaces.nsIScriptableInputStream);
+    //var siStream = Components.classes['@mozilla.org/scriptableinputstream;1'].createInstance(Components.interfaces.nsIScriptableInputStream);
+    
+    var siStream = Components.classes["@mozilla.org/intl/converter-input-stream;1"].createInstance(Components.interfaces.nsIConverterInputStream);
 
+   
     var data = '';
     if(localfile.exists())
     {
 	    stream.init(localfile, 0x01, 0, 0);
-	    siStream.init(stream);
-	    data = siStream.read(-1);
+	    siStream.init(stream, "UTF8", 1024, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+	    data = "";
+				
+		var str = {};
+		while (siStream.readString(4096, str) != 0)
+		{
+			data += str.value;
+		}
 	    
 	    var splitstickies = data.split("\n");
 	    data = "";
