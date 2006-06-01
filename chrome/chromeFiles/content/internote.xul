@@ -40,6 +40,7 @@
 		<menuitem label="&newnote.label;" oncommand="newSticky()" />
 		<menuitem label="&internote.manager.title;..." oncommand="window.openDialog('chrome://internote/content/internote-manager.xul', 'internotemanager', 'centerscreen, chrome, all, modal');" />
 		<menuitem label="&noteprefs.label;..." oncommand="window.openDialog('chrome://internote/content/internote-preferences.xul', 'internoteprefs', 'centerscreen, all, dialog=no', window);" />
+		<menuitem label="&internotehelp.label;..." oncommand="getBrowser().contentWindow.location = 'chrome://internote/content/help.html';" />
 		<menuseparator />
 		<!--<menuitem label="Toggle All Notes" oncommand="alert('Windowshade Not Yet Implemented!')" />-->
 		<menuitem id="internote-disable-label" label="&internote.disable.label;" oncommand="disableInternote()" />
