@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label "Notiz Stil">
 <!ENTITY generalheader.label "Allgemeine Einstellungen">
 <!ENTITY positionheader.label "Einstellungen zur Positionierung">
+<!ENTITY defaultfontsize.label "Default Font Size">
 <!ENTITY defaultcolor.label "Standart Notiz Farbe">
 <!ENTITY defaulttextcolor.label "Standart TextFarbe">
 <!ENTITY defaultsize.label "Standart Notiz Groesse">
@@ -32,6 +33,7 @@
 <!ENTITY normalsize.label "Normal">
 <!ENTITY largesize.label "Gross">
 <!ENTITY giantsize.label "Sehr gross">
+<!ENTITY megasize.label "Mega">
 <!ENTITY internote.manager.title "Internote Manager">
 <!ENTITY internote.list.title "Notizen">
 <!ENTITY internote.search.title "Suche">

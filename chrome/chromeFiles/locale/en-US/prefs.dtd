@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label		"Note Style">
 <!ENTITY generalheader.label		"General Preferences">
 <!ENTITY positionheader.label		"Positioning Preferences">
+<!ENTITY defaultfontsize.label		"Default Font Size">
 <!ENTITY defaultcolor.label		"Default Note Color">
 <!ENTITY defaulttextcolor.label		"Default Text Color">
 <!ENTITY defaultsize.label		"Default Note Size">

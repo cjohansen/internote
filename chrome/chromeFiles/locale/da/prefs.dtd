@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label "Note-stil">
 <!ENTITY generalheader.label "Generelle indstillinger">
 <!ENTITY positionheader.label "Positioneringsindstillinger">
+<!ENTITY defaultfontsize.label "Standard fontstørrelse">
 <!ENTITY defaultcolor.label "Standard notefarve">
 <!ENTITY defaulttextcolor.label "Standard tekstfarve">
 <!ENTITY defaultsize.label "Standard notestørrelse">
@@ -32,6 +33,7 @@
 <!ENTITY normalsize.label "Normal">
 <!ENTITY largesize.label "Stor">
 <!ENTITY giantsize.label "Kæmpe">
+<!ENTITY megasize.label "Mega">
 <!ENTITY internote.manager.title "Internote Administration">
 <!ENTITY internote.list.title "Noter">
 <!ENTITY internote.search.title "Søg">

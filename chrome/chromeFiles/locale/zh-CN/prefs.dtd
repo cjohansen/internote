@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label "便签风格">
 <!ENTITY generalheader.label "常规选项">
 <!ENTITY positionheader.label "位置选项">
+<!ENTITY defaultfontsize.label "默认字体大小">
 <!ENTITY defaultcolor.label "默认便签颜色">
 <!ENTITY defaulttextcolor.label "默认文字颜色">
 <!ENTITY defaultsize.label "默认便签大小">
@@ -32,6 +33,7 @@
 <!ENTITY normalsize.label "正常">
 <!ENTITY largesize.label "较大">
 <!ENTITY giantsize.label "特大">
+<!ENTITY megasize.label "巨大">
 <!ENTITY internote.manager.title "内部便签管理器">
 <!ENTITY internote.list.title "便签">
 <!ENTITY internote.search.title "搜索">

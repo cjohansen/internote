@@ -61,7 +61,7 @@
                         </menulist>
                     </hbox>
                     <hbox align="center">
-                        <label value="Default Font Size:" control="fontsizeEntryBox" style="width: 130px;" />
+                        <label value="&defaultfontsize.label;:" control="fontsizeEntryBox" style="width: 130px;" />
                         <menulist id="fontsizeEntryBox" preference="fontSizePreference">
                             <menupopup>
                                 <menuitem value="10" label="&tinysize.label;" />

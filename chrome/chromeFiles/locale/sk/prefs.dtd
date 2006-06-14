@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label "Štýl poznámky">
 <!ENTITY generalheader.label "Všeobecné nastavenia">
 <!ENTITY positionheader.label "Nastavenia pozície">
+<!ENTITY defaultfontsize.label "Základná veľkosť písma">
 <!ENTITY defaultcolor.label "Implicitná farba poznámky">
 <!ENTITY defaulttextcolor.label "Implicitná farba textu">
 <!ENTITY defaultsize.label "Implicitná veľkosť lístka">
@@ -28,10 +29,11 @@
 <!ENTITY bottomleft.label "Vľavo-dole">
 <!ENTITY bottomright.label "Vpravo-dole">
 <!ENTITY center.label "V strede">
-<!ENTITY tinysize.label "Malý">
-<!ENTITY normalsize.label "Normálny">
-<!ENTITY largesize.label "Veľký">
-<!ENTITY giantsize.label "Obrovský">
+<!ENTITY tinysize.label "Malá">
+<!ENTITY normalsize.label "Normálna">
+<!ENTITY largesize.label "Veľká">
+<!ENTITY giantsize.label "Obrovská">
+<!ENTITY megasize.label "Mega">
 <!ENTITY internote.manager.title "Manažér Internote">
 <!ENTITY internote.list.title "Správy">
 <!ENTITY internote.search.title "Hľadať">

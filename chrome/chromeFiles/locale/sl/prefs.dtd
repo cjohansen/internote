@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label "Slog opomnika">
 <!ENTITY generalheader.label "Splošne nastavitve">
 <!ENTITY positionheader.label "Nastavitve položaja">
+<!ENTITY defaultfontsize.label "Privzeta velikost pisave">
 <!ENTITY defaultcolor.label "Privzeta barva opomnika">
 <!ENTITY defaulttextcolor.label "Privzeta barva besedila">
 <!ENTITY defaultsize.label "Privzeta velikost opomnika">
@@ -32,6 +33,7 @@
 <!ENTITY normalsize.label "Običajna">
 <!ENTITY largesize.label "Velika">
 <!ENTITY giantsize.label "Ogromna">
+<!ENTITY megasize.label "Gromozanska">
 <!ENTITY internote.manager.title "Upravljalec Internote">
 <!ENTITY internote.list.title "Opomniki">
 <!ENTITY internote.search.title "Iskanje">

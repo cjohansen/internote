@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label "Notitie stijl">
 <!ENTITY generalheader.label "Algemene voorkeuren">
 <!ENTITY positionheader.label "Positie voorkeuren">
+<!ENTITY defaultfontsize.label "Standaard letterypegrootte">
 <!ENTITY defaultcolor.label "Standaard notitiekleur">
 <!ENTITY defaulttextcolor.label "Standaard tekstkleur">
 <!ENTITY defaultsize.label "Standaard afmetingen">
@@ -32,6 +33,7 @@
 <!ENTITY normalsize.label "Normaal">
 <!ENTITY largesize.label "Groot">
 <!ENTITY giantsize.label "Gigantisch">
+<!ENTITY megasize.label "Mega">
 <!ENTITY internote.manager.title "Internote Beheerder">
 <!ENTITY internote.list.title "Notities">
 <!ENTITY internote.search.title "Zoeken">

@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label "Стиль заметок">
 <!ENTITY generalheader.label "Основные предпочтения">
 <!ENTITY positionheader.label "Предпочтения размещения на экране">
+<!ENTITY defaultfontsize.label "Размер текста по-умолчанию">
 <!ENTITY defaultcolor.label "Цвет заметки по-умолчанию">
 <!ENTITY defaulttextcolor.label "Цвет текста по-умолчанию">
 <!ENTITY defaultsize.label "Размер заметки по-умолчанию">
@@ -32,6 +33,7 @@
 <!ENTITY normalsize.label "Нормальный">
 <!ENTITY largesize.label "Большой">
 <!ENTITY giantsize.label "Очень большой">
+<!ENTITY megasize.label "Мега большой">
 <!ENTITY internote.manager.title "Управление Internote">
 <!ENTITY internote.list.title "Заметки">
 <!ENTITY internote.search.title "Поиск">

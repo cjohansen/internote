@@ -5,7 +5,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>{e3631030-7c02-11da-a72b-0800200c9a66}</em:id>
-    <em:version>2.1</em:version>
+    <em:version>2.0.1</em:version>
     <em:type>2</em:type>
     
     <!-- Firefox -->
@@ -21,7 +21,7 @@
     <em:targetApplication>
       <Description>
         <em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
-        <em:minVersion>1.0</em:minVersion>
+        <em:minVersion>0.6</em:minVersion>
         <em:maxVersion>1.0+</em:maxVersion>
       </Description>
     </em:targetApplication>

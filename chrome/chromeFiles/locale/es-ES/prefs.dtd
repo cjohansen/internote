@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label "Estilo de nota">
 <!ENTITY generalheader.label "Preferencias generales">
 <!ENTITY positionheader.label "Preferencias de posición">
+<!ENTITY defaultfontsize.label "Tamaño predeterminado de fuente">
 <!ENTITY defaultcolor.label "Color predeterminado de nota">
 <!ENTITY defaulttextcolor.label "Color predeterminado de texto">
 <!ENTITY defaultsize.label "Tamaño predeterminado de nota">
@@ -32,6 +33,7 @@
 <!ENTITY normalsize.label "Normal">
 <!ENTITY largesize.label "Grande">
 <!ENTITY giantsize.label "Gigante">
+<!ENTITY megasize.label "Mega">
 <!ENTITY internote.manager.title "Administrador de Internote">
 <!ENTITY internote.list.title "Notas">
 <!ENTITY internote.search.title "Búsqueda">

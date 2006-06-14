@@ -266,6 +266,7 @@ loadData : function()
 	var currentIndex = document.getElementById("elementList").currentIndex;
 	
 	var dIsContainer = this.treeView.isContainer(currentIndex);
+	
 	if(!dIsContainer && !((currentIndex < 0) || (!this.treeView.visibleData[currentIndex])))
 	{
 		var noteIndex = this.treeView.visibleData[currentIndex][3];
@@ -297,6 +298,16 @@ loadData : function()
 		document.getElementById("textColorEntryBox").setAttribute("disabled", "true");
 		document.getElementById("deleteNote").setAttribute("disabled", "true");
 		document.getElementById("resetNoteLoc").setAttribute("disabled", "true");
+	}
+	
+	if(dIsContainer)
+	{
+		if(!this.treeView.isContainerOpen(currentIndex))
+			this.treeView.toggleOpenState(currentIndex);
+		if(!this.treeView.isContainer(currentIndex + 1))
+		{
+			this.treeView.selection.timedSelect(currentIndex + 1, 1000);
+		}
 	}
 },
 
@@ -424,6 +435,10 @@ openURL : function()
 printNotes : function()
 {
 	var myDoc = document.getElementById("printbrowser").contentDocument;
+	
+	myDoc.open();
+	myDoc.close();
+	
 	myDoc.title="Internote";
 	var notehtml = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:html");
 	var notebody = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:body");
@@ -435,37 +450,48 @@ printNotes : function()
 	
 	var curl = "";
 	
-	for(sticky in this.stickiesData)
+	var start = new Object();
+	var end = new Object();
+	var numRanges = this.treeView.selection.getRangeCount();
+	
+	for (var t=0; t<numRanges; t++)
 	{
-		var localSticky = this.stickiesData[sticky];
-		
-		if(curl != localSticky[0])
+		this.treeView.selection.getRangeAt(t,start,end);
+		for (var v=start.value; v<=end.value; v++)
 		{
-			if(curl != "")
+			var sticky = this.treeView.visibleData[v][3];
+			var localSticky = this.stickiesData[sticky];
+			
+			if(curl != localSticky[0])
 			{
-				notediv.appendChild(bigtable);
+				if(curl != "")
+				{
+					notediv.appendChild(bigtable);
+				}
+				
+				bigtable = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+				bigtable.setAttribute("style", "border: 1px solid lightgray; padding: 15px; margin: 5px;");
+				bigtable.setAttribute("width", "100%");
+				wholetr = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+				wholetr.setAttribute("style", "color: gray; margin-bottom: 10px; border-bottom: 1px solid #DDD; font-size: 12px;");
+				wholetr.appendChild(myDoc.createTextNode(localSticky[0]));
+				wholetr.appendChild(myDoc.createElement("br"));
+				bigtable.appendChild(wholetr);
 			}
 			
-			bigtable = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
-			bigtable.setAttribute("style", "border: 1px solid lightgray; padding: 15px; margin: 5px;");
-			bigtable.setAttribute("width", "100%");
-			wholetr = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
-			wholetr.setAttribute("style", "color: gray; margin-bottom: 10px; border-bottom: 1px solid #DDD; font-size: 12px;");
-			wholetr.appendChild(myDoc.createTextNode(localSticky[0]));
-			wholetr.appendChild(myDoc.createElement("br"));
-			bigtable.appendChild(wholetr);
+			curl = localSticky[0];
+			
+			if(localSticky)
+			{
+				var myStickyText = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:pre");
+				myStickyText.setAttribute("style", "border-left: 1px solid " + localSticky[6] + "; padding: 5px 0px 5px 10px; margin-left: 10px; font-family: sans-serif sans;");
+				myStickyText.appendChild(myDoc.createTextNode(localSticky[1]));
+				bigtable.appendChild(myStickyText);
+			}
 		}
-		
-		curl = localSticky[0];
-		
-		if(localSticky)
-		{
-			var myStickyText = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:pre");
-			myStickyText.setAttribute("style", "border-left: 1px solid " + localSticky[6] + "; padding: 5px 0px 5px 10px; margin-left: 10px; font-family: sans-serif sans;");
-			myStickyText.appendChild(myDoc.createTextNode(localSticky[1]));
-			bigtable.appendChild(myStickyText);
-		}
-	}
+	}			
+	
+
 	
 	notediv.appendChild(bigtable);
 	notebody.appendChild(notediv);

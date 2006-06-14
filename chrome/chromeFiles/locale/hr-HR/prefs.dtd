@@ -2,6 +2,7 @@
 <!ENTITY styleheader.label "Stil bilješke">
 <!ENTITY generalheader.label "Općenite postavke">
 <!ENTITY positionheader.label "Postavke poziciranja">
+<!ENTITY defaultfontsize.label "Zadana veličina fonta">
 <!ENTITY defaultcolor.label "Zadana boja bilješke">
 <!ENTITY defaulttextcolor.label "Zadana boja teksta">
 <!ENTITY defaultsize.label "Zadana veličina bilješke">
@@ -32,6 +33,7 @@
 <!ENTITY normalsize.label "Normalna">
 <!ENTITY largesize.label "Velika">
 <!ENTITY giantsize.label "Ogromna">
+<!ENTITY megasize.label "Mega">
 <!ENTITY internote.manager.title "Internote Upravitelj">
 <!ENTITY internote.list.title "Bilješke">
 <!ENTITY internote.search.title "Traži">

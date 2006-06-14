@@ -446,20 +446,21 @@ var stickiesDataArray;
 
 function setupLoadedStickies()
 {
-    if(stickiesDataArray)
-    {
-        for (var line in stickiesDataArray)
-        {
-            if(stickiesDataArray[line])
-            {
-                var attributeArray = stickiesDataArray[line].split("`");
-                stickyUrls[line] = (attributeArray[0]);
-                // fix newline characters
-                attributeArray[1] = attributeArray[1].replace(/<br>/g, "\n");
-                newStickyWithContents(attributeArray[1], attributeArray[2], attributeArray[3], attributeArray[4], attributeArray[5], attributeArray[6], attributeArray[7], 0, line);
-            }
-        }
-    }
+	if(stickiesDataArray)
+	{
+	    for (var line in stickiesDataArray)
+	    {
+	        if(stickiesDataArray[line])
+	        {
+	            var attributeArray = stickiesDataArray[line].split("`");
+	            stickyUrls[line] = (attributeArray[0]);
+	            // fix newline characters
+	            attributeArray[1] = attributeArray[1].replace(/<br>/g, "\n");
+	            newStickyWithContents(attributeArray[1], attributeArray[2], attributeArray[3], attributeArray[4], attributeArray[5], attributeArray[6], attributeArray[7], 0, line);
+	        }
+	    }
+	}
+	
     stickiesDataArray = new Array();
     inloading=false;
 }
@@ -493,11 +494,11 @@ function loadStickies(newLocation)
 	var i = 0;
 		
 	var entries = stickiesNSLocalFile(chromedir).directoryEntries;
-	while(entries.hasMoreElements())
+	//while(entries.hasMoreElements())
 	{
-		var entry = entries.getNext();
+		var entry = stickiesNSLocalFile(chromedir + "stickies");
 		entry.QueryInterface(Components.interfaces.nsIFile);
-		if(entry.path.match(/stickies$/))
+		//if(entry.path.match(/stickies$/))
 		{
 			var localfile = stickiesNSLocalFile(entry.path);
 			
