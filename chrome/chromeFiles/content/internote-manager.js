@@ -364,25 +364,50 @@ deleteNote : function()
 {
 	if(this.treeView.isContainer(currentIndex)) return;
 	
-	var currentIndex = document.getElementById("elementList").currentIndex;
-	var noteIndex = this.treeView.visibleData[currentIndex][3];
+	var totalnum = 0;
+	var start = new Object();
+	var end = new Object();
+	var numRanges = this.treeView.selection.getRangeCount();
 	
-	var childNotes = this.treeView.childData[this.treeView.visibleData[this.treeView.getParentIndex(currentIndex)][0]];
-
-	for(cnote in childNotes)
+	var openNotes = new Array();
+	
+	for (var t=0; t<numRanges; t++)
 	{
-		if(childNotes[cnote])
-			if(childNotes[cnote] == noteIndex)
-				childNotes = childNotes.slice(0, cnote).concat(childNotes.slice(cnote+1));
+		this.treeView.selection.getRangeAt(t,start,end);
+		for (var v=start.value; v<=end.value; v++)
+		{
+			openNotes.push(v);
+			totalnum++;
+		}
 	}
 	
-	this.treeView.childData[this.treeView.visibleData[this.treeView.getParentIndex(currentIndex)][0]] = childNotes;
+	var i;
+	var num = 0;
+	for(var i = 0; i < totalnum; i++)
+	{
+		var noteIndex = this.treeView.visibleData[openNotes[i] - num][3];
+		var currentIndex = openNotes[i] - num;
+		
+		//alert(i-num);
+		
+		var childNotes = this.treeView.childData[this.treeView.visibleData[this.treeView.getParentIndex(currentIndex)][0]];
 	
-	this.treeView.visibleData = this.treeView.visibleData.slice(0, currentIndex).concat(this.treeView.visibleData.slice(currentIndex+1));
-	this.treeView.treeBox.rowCountChanged(currentIndex, -1);
-	
-	this.checkForOrphans();
-	this.stickiesData[noteIndex] = null;
+		for(cnote in childNotes)
+		{
+			if(childNotes[cnote])
+				if(childNotes[cnote] == noteIndex)
+					childNotes = childNotes.slice(0, cnote).concat(childNotes.slice(cnote+1));
+		}
+		
+		this.treeView.childData[this.treeView.visibleData[this.treeView.getParentIndex(currentIndex)][0]] = childNotes;
+		
+		this.treeView.visibleData = this.treeView.visibleData.slice(0, currentIndex).concat(this.treeView.visibleData.slice(currentIndex+1));
+		this.treeView.treeBox.rowCountChanged(currentIndex, -1);
+		
+		this.checkForOrphans();
+		this.stickiesData[noteIndex] = null;
+		num++;
+	}
 	this.loadData();
 	return;
 },
@@ -422,12 +447,35 @@ checkForOrphans : function()
 
 openURL : function()
 {
+	var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
 	var noteurl = document.getElementById("noteURL").value;
+	var openInNewWindow = false;
+	
+	var prefs = Components.classes["@mozilla.org/preferences-service;1"].
+                getService(Components.interfaces.nsIPrefService).
+                getBranch("browser.link.");
+    if(prefs.getPrefType("open_external") !=0)
+    {
+        var bloe = prefs.getIntPref("open_external");
+        if(bloe == 1) openInNewWindow = false;
+        if(bloe == 2) openInNewWindow = true;
+        if(bloe == 3) openInNewWindow = false;
+    }
 	
 	if(noteurl)
 	{
 		noteurl = noteurl.replace(/\.\*$/, "");
-		window.arguments[0].getBrowser().getBrowserAtIndex(window.arguments[0].getBrowser().mTabContainer.selectedIndex).loadURI(noteurl);
+		
+		var recentWindow = wm.getMostRecentWindow("navigator:browser");
+		if(recentWindow && !openInNewWindow)
+		{
+			recentWindow.delayedOpenTab(noteurl);
+		}
+		else
+		{
+			window.open(noteurl);
+		}
+
 		document.getElementById("internoteManager").acceptDialog();
 	}
 },
@@ -489,9 +537,42 @@ printNotes : function()
 				bigtable.appendChild(myStickyText);
 			}
 		}
-	}			
+	}
 	
-
+	if(numRanges == 0)
+	{
+		for(sticky in this.stickiesData)
+		{
+			var localSticky = this.stickiesData[sticky];
+			
+			if(curl != localSticky[0])
+			{
+				if(curl != "")
+				{
+					notediv.appendChild(bigtable);
+				}
+				
+				bigtable = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+				bigtable.setAttribute("style", "border: 1px solid lightgray; padding: 15px; margin: 5px;");
+				bigtable.setAttribute("width", "100%");
+				wholetr = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+				wholetr.setAttribute("style", "color: gray; margin-bottom: 10px; border-bottom: 1px solid #DDD; font-size: 12px;");
+				wholetr.appendChild(myDoc.createTextNode(localSticky[0]));
+				wholetr.appendChild(myDoc.createElement("br"));
+				bigtable.appendChild(wholetr);
+			}
+			
+			curl = localSticky[0];
+			
+			if(localSticky)
+			{
+				var myStickyText = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:pre");
+				myStickyText.setAttribute("style", "border-left: 1px solid " + localSticky[6] + "; padding: 5px 0px 5px 10px; margin-left: 10px; font-family: sans-serif sans;");
+				myStickyText.appendChild(myDoc.createTextNode(localSticky[1]));
+				bigtable.appendChild(myStickyText);
+			}
+		}
+	}
 	
 	notediv.appendChild(bigtable);
 	notebody.appendChild(notediv);

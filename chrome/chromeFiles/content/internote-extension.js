@@ -49,50 +49,7 @@ function newSticky()
 	var notePos = internotePreferences.getDefaultPosition();
 	var noteLeft = 0;
 	var noteTop = 0;
-	
-	switch(notePos)
-	{
-		case(notePos="0"): // Top Left
-			noteLeft += 1;
-			noteTop += 1;
-			
-			noteLeft += (stickiesCount * 5);
-			noteTop += (stickiesCount * 5);
-	
-			break;
-		case(notePos="1"): // Top Right
-			noteLeft += (window.innerWidth - 150 - 1);
-			noteTop += 1;
-			
-			noteLeft -= (stickiesCount * 5);
-			noteTop += (stickiesCount * 5);
-	
-			break;
-		case(notePos="2"): // Bottom Left
-			noteLeft += 1;
-			noteTop += (window.innerHeight - 233 - 1);
-			
-			noteLeft += (stickiesCount * 5);
-			noteTop -= (stickiesCount * 5);
-			
-			break;
-		case(notePos="3"): // Bottom Right
-			noteLeft += (window.innerWidth - 150 - 1);
-			noteTop += (window.innerHeight - 233 - 1);
-			
-			noteLeft -= (stickiesCount * 5);
-			noteTop -= (stickiesCount * 5);
-	
-			break;
-		case(notePos="4"): // Centered
-			noteLeft += ((window.innerWidth / 2) - (150 / 2) - 1);
-			noteTop += ((window.innerHeight / 2) - (233 / 2) - 1);
-			
-			noteLeft += (stickiesCount * 5);
-			noteTop += (stickiesCount * 5);
-	
-			break;
-	}
+	var maxHeight = getBrowser().boxObject.height;
 	
 	var noteSize = internotePreferences.getDefaultSize();
 	var noteWidth = 0;
@@ -115,6 +72,50 @@ function newSticky()
 		case(noteSize="3"): // Giant
 			noteWidth = 350;
 			noteHeight = 350;
+			break;
+	}
+	
+	switch(notePos)
+	{
+		case(notePos="0"): // Top Left
+			noteLeft += getBrowser().boxObject.x;
+			noteTop += 1;
+			
+			noteLeft += (stickiesCount * 10);
+			noteTop += (stickiesCount * 10);
+	
+			break;
+		case(notePos="1"): // Top Right
+			noteLeft += (window.innerWidth - 150 - 1);
+			noteTop += 1;
+			
+			noteLeft -= (stickiesCount * 10);
+			noteTop += (stickiesCount * 10);
+	
+			break;
+		case(notePos="2"): // Bottom Left
+			noteLeft += getBrowser().boxObject.x;
+			noteTop += (maxHeight - noteHeight - 1);
+			
+			noteLeft += (stickiesCount * 10);
+			noteTop -= (stickiesCount * 10);
+			
+			break;
+		case(notePos="3"): // Bottom Right
+			noteLeft += (window.innerWidth - 150 - 1);
+			noteTop += (maxHeight - noteHeight - 1);
+			
+			noteLeft -= (stickiesCount * 10);
+			noteTop -= (stickiesCount * 10);
+	
+			break;
+		case(notePos="4"): // Centered
+			noteLeft += ((window.innerWidth / 2) - (150 / 2) - 1);
+			noteTop += ((window.innerHeight / 2) - (233 / 2) - 1);
+			
+			noteLeft += (stickiesCount * 10);
+			noteTop += (stickiesCount * 10);
+	
 			break;
 	}
 	
@@ -148,7 +149,7 @@ function newStickyWithContents(stickytext, stickyleft, stickytop, stickywidth, s
     mainDiv.appendChild(svgObject);
     
     var mainForm = document.createElementNS("http://www.w3.org/1999/xhtml", "html:form");
-    mainForm.setAttribute("style", "padding: 9px 8px; position: relative; top: -100%; background-color: transparent;");
+    mainForm.setAttribute("style", "margin: 9px 8px; position: relative; top: -100%; background-color: transparent;");
     mainForm.setAttribute("name", "stickiesnoteform" + stickiesCount);
     
     var specialHeight = parseInt(stickyheight, 10);

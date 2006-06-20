@@ -314,8 +314,12 @@ function stickiesStartDrag(event)
   	if(elid)
   	{
   		stickiesEL = event.target;
-  		
     	elid = "stickies-stickynote" + elid.replace(/stickies-[A-Za-z]+([0-9]+)/, "$1");
+    	stickiesEL = document.getElementById(elid);
+    }
+    else
+    {
+    	elid = "stickies-stickynote" + event.target.name.replace(/stickiesnoteform([0-9]+)/, "$1");
     	stickiesEL = document.getElementById(elid);
     }
     
@@ -520,9 +524,9 @@ function stickiesDragGo(event)
         
         // don't go past the sides, but check for the scrollbar too
         
-        var maxWidth = getBrowser().contentDocument.documentElement.clientWidth;
+        var maxWidth = getBrowser().boxObject.x + getBrowser().contentDocument.documentElement.clientWidth;
         var maxHeight = getBrowser().boxObject.y + getBrowser().boxObject.height;
-                
+        
         if((stickiesInitialLeft + x - stickiesCurrentX) > (maxWidth - elWidth))
     	{
     		stickiesEL.style.left = (maxWidth - elWidth) + "px";
