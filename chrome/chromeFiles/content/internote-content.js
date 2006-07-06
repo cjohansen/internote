@@ -200,8 +200,8 @@ function stickiesDraw(container)
             
             // draw the color swab headers
             
-            context.drawImage(stickyNoteHeader, 5.5, 10, stickyNoteHeader.width / 2, 6);
-            context.drawImage(stickyTextHeader, 5.5, 28, stickyTextHeader.width / 2, 6);
+            context.drawImage(stickyNoteHeader, 3, 9, stickyNoteHeader.width / 2, stickyNoteHeader.height / 2);
+            context.drawImage(stickyTextHeader, 3, 28, stickyTextHeader.width / 2, stickyTextHeader.height / 2);
             
             // draw the color swabs
             
@@ -244,7 +244,7 @@ function stickiesDraw(container)
                 
                 var hPos = 11 * colorIndex + 6;
                 context.fillStyle = stickiesTextColorSwabs[colorIndex];
-                context.fillRect(hPos, 35, 8, 8); context.strokeRect(hPos, 35, 8, 8);
+                context.fillRect(hPos, 37, 8, 8); context.strokeRect(hPos, 37, 8, 8);
             }
         
         context.restore();
@@ -363,7 +363,8 @@ function stickiesStartDrag(event)
     
 	    if((internal_x > (elWidth-17)) && (internal_y < 17))
 	    {
-	        internoteAnimation.stickiesCloseNote(stickiesEL);
+	    	if(stickiesAskBeforeDeletion())
+	    		internoteAnimation.stickiesCloseNote(stickiesEL);
 	    }
 	    else
 	    {
@@ -576,4 +577,18 @@ function stickiesDragStop(event)
     document.removeEventListener("mousemove", stickiesDragGo,   true);
     document.removeEventListener("mouseup",   stickiesDragStop, true);
     saveOneSticky();
+}
+
+function stickiesAskBeforeDeletion()
+{
+	if(!internotePreferences.getAskBeforeDelete())
+	{
+		return true;
+	}
+	else
+	{
+		return confirm("Are you sure you would like to delete this note?\nThis message can be disabled in Internote Preferences.");
+	}
+	
+	return true;
 }

@@ -2,6 +2,9 @@
 <!ENTITY styleheader.label		"Note Style">
 <!ENTITY generalheader.label		"General Preferences">
 <!ENTITY positionheader.label		"Positioning Preferences">
+<!ENTITY locationheader.label		"Storage Preferences">
+<!ENTITY location.label		"Save Location">
+<!ENTITY changelocation.label		"Specify Location">
 <!ENTITY defaultfontsize.label		"Default Font Size">
 <!ENTITY defaultcolor.label		"Default Note Color">
 <!ENTITY defaulttextcolor.label		"Default Text Color">
@@ -53,3 +56,5 @@
 <!ENTITY internote.resetloc.label		"Reset Location">
 <!ENTITY internote.export.label		"Export Notes">
 <!ENTITY preferences.save.label		"Save">
+<!ENTITY chooseFolder.label		"Browse...">
+<!ENTITY askBeforeDelete.label "Confirm Deletion">

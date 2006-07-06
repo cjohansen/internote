@@ -2,109 +2,117 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <!DOCTYPE window SYSTEM "chrome://internote/locale/prefs.dtd">
 
-<prefwindow id="internotePrefsWindow" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&prefsheader.label;" ondialogaccept="internotePreferences.refreshWindows();" ondialogcancel="internotePreferences.refreshWindows();" buttons="accept,cancel">
-  
-  <script type="application/x-javascript" src="chrome://internote/content/internote-preferences.js"></script>
-  
-  <prefpane id="internotePreferencesPane" label="&prefsheader.label;" image="chrome://internote/content/prefs.png">
-    <preferences>
-      <preference id="fontSizePreference" name="internote.fontsize" type="string"/>
-      <preference id="colorPreference" name="internote.defaultcolor" type="string"/>
-      <preference id="textColorPreference" name="internote.defaulttextcolor" type="string"/>
-      <preference id="defaultPositionPreference" name="internote.defaultposition" type="string"/>
-      <preference id="defaultSizePreference" name="internote.defaultsize" type="string"/>
-      <preference id="transparencyPreference" name="internote.transparency" type="bool"/>
-      <preference id="animPreference" name="internote.superfluous-animation" type="bool"/>
-      <preference id="highlightablePreference" name="internote.highlightable" type="bool"/>
-      <preference id="scrollbarPreference" name="internote.usescrollbar" type="bool"/>
-      <preference id="statusbarPreference" name="internote.usestatusbar" type="bool"/>
-    </preferences>
-    <vbox>
-        <groupbox flex="2">
-            <caption label="&styleheader.label;"/>
-                <vbox flex="1">
-                    <hbox align="center">
-                        <label value="&defaultcolor.label;:" control="colorEntryBox" style="width: 130px;" />
-                        <menulist id="colorEntryBox" preference="colorPreference">
-                            <menupopup>
-                                <menuitem value="0" label="&banana.label;" />
-                                <menuitem value="1" label="&melon.label;" />
-                                <menuitem value="2" label="&blueberry.label;" />
-                                <menuitem value="3" label="&lime.label;" />
-                                <menuitem value="4" label="&grape.label;" />
-                                <menuitem value="5" label="&cauliflower.label;" />
-                            </menupopup>
-                        </menulist>
-                    </hbox>
-                    <hbox align="center">
-                        <label value="&defaulttextcolor.label;:" control="textColorEntryBox" style="width: 130px;" />
-                        <menulist id="textColorEntryBox" preference="textColorPreference">
-                            <menupopup>
-                                <menuitem value="0" label="&charcoal.label;" />
-                                <menuitem value="1" label="&topsoil.label;" />
-                                <menuitem value="2" label="&grass.label;" />
-                                <menuitem value="3" label="&rose.label;" />
-                                <menuitem value="4" label="&aluminum.label;" />
-                                <menuitem value="5" label="&snow.label;" />
-                            </menupopup>
-                        </menulist>
-                    </hbox>
-                    <hbox align="center">
-                        <label value="&defaultsize.label;:" control="sizeEntryBox" style="width: 130px;" />
-                        <menulist id="sizeEntryBox" preference="defaultSizePreference">
-                            <menupopup>
-                                <menuitem value="0" label="&tinysize.label;" />
-                                <menuitem value="1" label="&normalsize.label;" />
-                                <menuitem value="2" label="&largesize.label;" />
-                                <menuitem value="3" label="&giantsize.label;" />
-                            </menupopup>
-                        </menulist>
-                    </hbox>
-                    <hbox align="center">
-                        <label value="&defaultfontsize.label;:" control="fontsizeEntryBox" style="width: 130px;" />
-                        <menulist id="fontsizeEntryBox" preference="fontSizePreference">
-                            <menupopup>
-                                <menuitem value="10" label="&tinysize.label;" />
-                                <menuitem value="12" label="&normalsize.label;" />
-                                <menuitem value="14" label="&largesize.label;" />
-                                <menuitem value="16" label="&giantsize.label;" />
-                                <menuitem value="18" label="&megasize.label;" />
-                            </menupopup>
-                        </menulist>
-                    </hbox>
-                </vbox>
-        </groupbox>
-        <groupbox flex="1">
-            <caption label="&positionheader.label;"/>
-                <vbox flex="1">
-                    <hbox align="center">
-                        <label value="&defaultpos.label;:" control="defaultNotePosition" />
-                        <menulist id="defaultNotePosition" preference="defaultPositionPreference">
-                            <menupopup>
-                                <menuitem value="0" label="&topleft.label;" />
-                                <menuitem value="1" label="&topright.label;" />
-                                <menuitem value="2" label="&bottomleft.label;" />
-                                <menuitem value="3" label="&bottomright.label;" />
-                                <menuitem value="4" label="&center.label;" />
-                            </menupopup>
-                        </menulist>
-                    </hbox>
-                </vbox>
-        </groupbox>
-        <groupbox flex="1">
-            <caption label="&generalheader.label;"/>
-            <vbox align="left">
-                <checkbox id="animationCheckBox" preference="animPreference" label="&useanimation.label;" />
-                <checkbox id="defaultTransCheckBox" preference="transparencyPreference" label="&defaulttrans.label;" />
-                <checkbox id="highlightableCheckBox" preference="highlightablePreference" label="&defaulthighlightable.label;" />
-                <checkbox id="scrollbarCheckBox" preference="scrollbarPreference" label="&usescrollbar.label;" />
-                <checkbox id="statusbarCheckBox" preference="statusbarPreference" label="&usestatusbar.label;" />
-            </vbox>
-        </groupbox>
-    </vbox>
-    <!--<hbox>
-    	<spacer flex="3" />
-    	<button id="accept-button" label="&preferences.save.label;" oncommand="internotePreferences.refreshWindows(); window.close();"/>
-    </hbox>-->
-  </prefpane>
+<prefwindow id="internotePrefsWindow" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&prefsheader.label;" ondialogaccept="internotePreferences.saveSettings();" ondialogcancel="internotePreferences.refreshWindows();" onload="internotePreferences.loadPrefs();" buttons="accept,cancel">
+
+	<script type="application/x-javascript" src="chrome://internote/content/internote-preferences.js"></script>
+	<script type="application/x-javascript" src="chrome://internote/content/internote-utilities.js"></script>
+	<prefpane id="internotePreferencesPane" label="&prefsheader.label;" image="chrome://internote/content/prefs.png">
+		<preferences>
+			<preference id="fontSizePreference" name="internote.fontsize" type="string"/>
+			<preference id="colorPreference" name="internote.defaultcolor" type="string"/>
+			<preference id="textColorPreference" name="internote.defaulttextcolor" type="string"/>
+			<preference id="defaultPositionPreference" name="internote.defaultposition" type="string"/>
+			<preference id="defaultSizePreference" name="internote.defaultsize" type="string"/>
+			<preference id="transparencyPreference" name="internote.transparency" type="bool"/>
+			<preference id="animPreference" name="internote.superfluous-animation" type="bool"/>
+			<preference id="highlightablePreference" name="internote.highlightable" type="bool"/>
+			<preference id="scrollbarPreference" name="internote.usescrollbar" type="bool"/>
+			<preference id="statusbarPreference" name="internote.usestatusbar" type="bool"/>
+			<preference id="saveLocation" name="internote.savelocation" type="file"/>
+			<preference id="changelocationPreference" name="internote.changelocation" type="bool"/>
+			<preference id="askBeforeDeletePreference" name="internote.askbeforedelete" type="bool"/>
+		</preferences>
+		<vbox>
+			<groupbox flex="2">
+				<caption label="&styleheader.label;"/>
+					<vbox flex="1">
+						<hbox align="center">
+							<label value="&defaultcolor.label;:" control="colorEntryBox" style="width: 130px;" />
+							<menulist id="colorEntryBox" preference="colorPreference">
+								<menupopup>
+									<menuitem value="0" label="&banana.label;" />
+									<menuitem value="1" label="&melon.label;" />
+									<menuitem value="2" label="&blueberry.label;" />
+									<menuitem value="3" label="&lime.label;" />
+									<menuitem value="4" label="&grape.label;" />
+									<menuitem value="5" label="&cauliflower.label;" />
+								</menupopup>
+							</menulist>
+						</hbox>
+						<hbox align="center">
+							<label value="&defaulttextcolor.label;:" control="textColorEntryBox" style="width: 130px;" />
+							<menulist id="textColorEntryBox" preference="textColorPreference">
+								<menupopup>
+									<menuitem value="0" label="&charcoal.label;" />
+									<menuitem value="1" label="&topsoil.label;" />
+									<menuitem value="2" label="&grass.label;" />
+									<menuitem value="3" label="&rose.label;" />
+									<menuitem value="4" label="&aluminum.label;" />
+									<menuitem value="5" label="&snow.label;" />
+								</menupopup>
+							</menulist>
+						</hbox>
+						<hbox align="center">
+							<label value="&defaultsize.label;:" control="sizeEntryBox" style="width: 130px;" />
+							<menulist id="sizeEntryBox" preference="defaultSizePreference">
+								<menupopup>
+									<menuitem value="0" label="&tinysize.label;" />
+									<menuitem value="1" label="&normalsize.label;" />
+									<menuitem value="2" label="&largesize.label;" />
+									<menuitem value="3" label="&giantsize.label;" />
+								</menupopup>
+							</menulist>
+						</hbox>
+						<hbox align="center">
+							<label value="&defaultfontsize.label;:" control="fontsizeEntryBox" style="width: 130px;" />
+							<menulist id="fontsizeEntryBox" preference="fontSizePreference">
+								<menupopup>
+									<menuitem value="10" label="&tinysize.label;" />
+									<menuitem value="12" label="&normalsize.label;" />
+									<menuitem value="14" label="&largesize.label;" />
+									<menuitem value="16" label="&giantsize.label;" />
+									<menuitem value="18" label="&megasize.label;" />
+								</menupopup>
+							</menulist>
+						</hbox>
+					</vbox>
+			</groupbox>
+			<groupbox flex="1">
+				<caption label="&positionheader.label;"/>
+					<vbox flex="1">
+						<hbox align="center">
+							<label value="&defaultpos.label;:" control="defaultNotePosition" />
+							<menulist id="defaultNotePosition" preference="defaultPositionPreference">
+								<menupopup>
+									<menuitem value="0" label="&topleft.label;" />
+									<menuitem value="1" label="&topright.label;" />
+									<menuitem value="2" label="&bottomleft.label;" />
+									<menuitem value="3" label="&bottomright.label;" />
+									<menuitem value="4" label="&center.label;" />
+								</menupopup>
+							</menulist>
+						</hbox>
+					</vbox>
+			</groupbox>
+			<groupbox flex="1">
+				<caption label="&generalheader.label;"/>
+				<vbox align="left">
+					<checkbox id="animationCheckBox" preference="animPreference" label="&useanimation.label;" />
+					<checkbox id="defaultTransCheckBox" preference="transparencyPreference" label="&defaulttrans.label;" />
+					<checkbox id="highlightableCheckBox" preference="highlightablePreference" label="&defaulthighlightable.label;" />
+					<checkbox id="scrollbarCheckBox" preference="scrollbarPreference" label="&usescrollbar.label;" />
+					<checkbox id="askBeforeDeleteCheckBox" preference="askBeforeDeletePreference" label="&askBeforeDelete.label;" />
+					<checkbox id="statusbarCheckBox" preference="statusbarPreference" label="&usestatusbar.label;" />
+				</vbox>
+			</groupbox>
+			<groupbox flex="1" width="320px">
+				<caption label="&locationheader.label;"/>
+				<checkbox id="changelocationCheckBox" preference="changelocationPreference" label="&changelocation.label;" onclick="internotePreferences.updateActiveFolderChooserSlow();"/>
+				<hbox flex="1">
+					<label control="chooseFolder" id="saveFolderField" flex="1" style="padding-top: 7px;" preference="saveLocation" onsyncfrompreference="return internotePreferences.getDefaultSaveLocation();" preference-editable="false" />
+					<button id="chooseFolder" oncommand="internotePreferences.chooseSaveLocation();" label="&chooseFolder.label;"/>
+				</hbox>
+			</groupbox>
+		</vbox>
+	</prefpane>
 </prefwindow>

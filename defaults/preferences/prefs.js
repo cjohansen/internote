@@ -9,3 +9,5 @@ pref("internote.highlightable", false);
 pref("internote.usescrollbar", false);
 pref("extensions.{e3631030-7c02-11da-a72b-0800200c9a66}.description", "chrome://internote/locale/internote.properties");
 pref("internote.usestatusbar", true);
+pref("internote.changelocation", false);
+pref("internote.askbeforedelete", true);

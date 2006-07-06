@@ -17,7 +17,7 @@
 
   <vbox id="clientBox" flex="1">
     <label id="extensionName" crop="right" value="Internote" />
-    <label id="extensionVersion" crop="right" value="2.0.5"/>
+    <label id="extensionVersion" crop="right" value="2.1"/>
     <description id="extensionDescription"/>
 
     <label id="extensionCreatorLabel">&creator.label;</label>
@@ -33,7 +33,7 @@
 	    <label class="contributor" style="margin-bottom: 5px;" value="AlleyKat - Danish Translation" />
 	    <label class="contributor" style="margin-bottom: 5px;" value="Goofy - French Translation" />
 	    <label class="contributor" style="margin-bottom: 5px;" value="neue.medien - German Translation" />
-	    <label class="contributor" style="margin-bottom: 5px;" value="Hubo - Slovak Translation" />
+	    <label class="contributor" style="margin-bottom: 5px;" value="Rastislav Hubočan - Slovak Translation" />
 	    <label class="contributor" style="margin-bottom: 5px;" value="Pedro - Italian Translation" />
 	    <label class="contributor" style="margin-bottom: 5px;" value="Teboga - Brazilian Portuguese Translation" />
 	    <label class="contributor" style="margin-bottom: 5px;" value="miles - Slovenian Translation" />

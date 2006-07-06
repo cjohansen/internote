@@ -12,10 +12,21 @@
         persist="screenX screenY width height"
         screenX="24" screenY="24" width="700px" height="500px">
 
-<script src="chrome://internote/content/internote-manager.js" />
-<script src="chrome://global/content/printUtils.js" />
+<script src="chrome://internote/content/internote-manager.js"></script>
+<script src="chrome://internote/content/internote-preferences.js"></script>
+<script src="chrome://internote/content/internote-utilities.js"></script>
+<script src="chrome://global/content/printUtils.js"></script>
         
 <label value="&internote.manager.title;" style="font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 5px;" />
+
+<popupset>
+  <popup id="exportMenu">
+    <menuitem label="to Internote file..." oncommand="internoteManager.exportNotes();"/>
+    <menuitem label="to Bookmark file..." oncommand="internoteManager.exportNotesBookmark();"/>
+    <menuitem label="to Text file..." oncommand="internoteManager.exportNotesText();"/>
+    <menuitem label="to HTML file..." oncommand="internoteManager.exportNotesHTML();"/>
+  </popup>
+</popupset>
         
 <hbox flex="2">
 	<vbox flex="3">
@@ -41,7 +52,7 @@
 		<hbox>
 			<button flex="1" id="printNotes" label="&internote.print.label;" style="font-weight: bold;" onclick="internoteManager.printNotes();"/>
 			<spacer flex="1" />
-			<!--<button flex="1" id="exportNotes" label="&internote.export.label;" style="font-weight: bold;" onclick="internoteManager.exportNotes()" />-->
+			<button flex="1" id="exportNotes" label="&internote.export.label;" style="font-weight: bold;" popup="exportMenu" />
 		</hbox>
 	</vbox>
 	<splitter />

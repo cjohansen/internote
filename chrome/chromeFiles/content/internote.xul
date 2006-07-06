@@ -9,7 +9,9 @@
 <script type="application/x-javascript" src="chrome://internote/content/internote-content.js"></script>
 <script type="application/x-javascript" src="chrome://internote/content/internote-animation.js"></script>
 <script type="application/x-javascript" src="chrome://internote/content/internote-preferences.js"></script>
+<script type="application/x-javascript" src="chrome://internote/content/internote-output.js"></script>
 <script type="application/x-javascript" src="chrome://internote/content/internote-extension.js"></script>
+<script type="application/x-javascript" src="chrome://internote/content/internote-utilities.js"></script>
 
 <commandset id="mainCommandSet">
     <command id="cmd_newSticky" oncommand="newSticky()" />
@@ -40,10 +42,17 @@
 		<menuitem label="&newnote.label;" oncommand="newSticky()" />
 		<menuitem label="&internote.manager.title;..." oncommand="window.openDialog('chrome://internote/content/internote-manager.xul', 'internotemanager', 'centerscreen, chrome, all, modal');" />
 		<menuitem label="&noteprefs.label;..." oncommand="window.openDialog('chrome://internote/content/internote-preferences.xul', 'internoteprefs', 'centerscreen, all, dialog=no', window);" />
-		<menuitem label="&internotehelp.label;..." oncommand="getBrowser().contentWindow.location = 'chrome://internote/content/help.html';" />
+		<!--<menuitem label="&internotehelp.label;..." oncommand="getBrowser().contentWindow.location = 'chrome://internote/content/help.html';" />-->
 		<menuseparator />
 		<!--<menuitem label="Toggle All Notes" oncommand="alert('Windowshade Not Yet Implemented!')" />-->
 		<menuitem id="internote-disable-label" label="&internote.disable.label;" oncommand="disableInternote()" />
+	</popup>
+
+	<popup id="noteContextMenu">
+		<menuitem label="Cut" cmd="cmd_cut"/>
+		<menuitem label="Copy" cmd="cmd_copy"/>
+		<menuitem label="Paste" cmd="cmd_paste"/>
+		<menuitem label="View in Manager..." oncommand=""/>
 	</popup>
 </popupset>
 

@@ -8,7 +8,7 @@ function entryBoxHandleUpdate()
 
 var internoteManager = {
 
-nyi : function()
+nyi : function ()
 {
 	alert("Feature Not Yet Implemented.");
 },
@@ -29,34 +29,14 @@ convertHexToCSS : function(color)
     return "rgb(" + parseInt(colorone, 16) + ", " + parseInt(colortwo, 16) + ", " + parseInt(colorthree, 16) + ")";
 },
 
-stickiesNSLocalFile : function(path)
-{
-    const LOCALFILE_CTRID = "@mozilla.org/file/local;1";
-    const nsILocalFile = Components.interfaces.nsILocalFile;
-
-    var localFile = Components.classes[LOCALFILE_CTRID].createInstance(nsILocalFile);
-    localFile.initWithPath(path);
-    return localFile;
-},
-
-initInternoteManager : function()
+initInternoteManager : function ()
 {
 	document.getElementById("colorEntryBox").addEventListener("ValueChange", entryBoxHandleUpdate, false);
 	document.getElementById("textColorEntryBox").addEventListener("ValueChange", entryBoxHandleUpdate, false);
 	
-    var chromedir = Components.classes['@mozilla.org/file/directory_service;1'].createInstance(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsIFile).path;
+    var chromedir = internoteUtilities.getSaveDirectory();
     
-    var chromedirtest = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	chromedirtest.initWithPath(chromedir);
-	if (!chromedirtest.exists())
-		chromedirtest.create(0x01, 0666);
-    
-    if(chromedir.match(/\\/))
-        chromedir += "\\";
-    else
-        chromedir += "/";
-    
-	var entry = this.stickiesNSLocalFile(chromedir + "stickies");
+	var entry = internoteUtilities.createNSLocalFile(chromedir + "stickies");
 	this.loadStickies(entry.path);
 	this.setupLoadedStickies();
 	
@@ -68,9 +48,7 @@ initInternoteManager : function()
 	{
 		this.stickiesData[i][8] = this.stickiesData[i][0].replace(/^[a-zA-Z]*:\/\//g, "");
 		if(this.stickiesData[i][8] != lastURL)
-		{
 			makeVD += "[\"" + this.stickiesData[i][8] + "\", true, false, " + i + "],";
-		}
 		
 		lastURL = this.stickiesData[i][8];
 		i++;
@@ -90,9 +68,7 @@ initInternoteManager : function()
 		if(this.stickiesData[i][8] != lastURL)
 		{
 			if(lastURL != "")
-			{
 				makeCD += "],";
-			}
 			makeCD += "\"" + this.stickiesData[i][8] + "\": [" + i;
 		}
 		else
@@ -112,7 +88,7 @@ initInternoteManager : function()
 
 stickiesDataArray : "",
 
-setupLoadedStickies : function()
+setupLoadedStickies : function ()
 {
     if(this.stickiesDataArray)
     {
@@ -133,7 +109,7 @@ setupLoadedStickies : function()
     this.stickiesDataArray = new Array();
 },
 
-onDialogAccept : function()
+onDialogAccept : function ()
 {
 	this.saveAllStickies();
 	
@@ -155,113 +131,27 @@ removeIndexes : function(oldURL)
 	return newURL;
 },
 
-saveAllStickies : function()
-{
-	this.updateCurrent();
-	
-	var chromedir = Components.classes["@mozilla.org/file/directory_service;1"].createInstance(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsIFile).path;
-    
-    if(chromedir.match(/\\/))
-        chromedir += "\\";
-    else
-        chromedir += "/";
-        
-    // make sure chrome directory exists - if not, create it!
-    var chromedirtest = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	chromedirtest.initWithPath(chromedir);
-	if (!chromedirtest.exists())
-		chromedirtest.create(0x01, 0666);
-		
-	var curl = "";
-	var stickiesString = "";
-	var sticky;
-	
-	for(sticky in this.stickiesData)
-	{
-		var localSticky = this.stickiesData[sticky];
-		
-		if(localSticky)
-		{
-			curl = localSticky[0];
-			
-			var newStickyText = localSticky[1].replace(/`/g, "'");
-			newStickyText = newStickyText.replace(/\n/g, "<br>");
-			
-	        var defaultNoteColor = localSticky[6];
-	        if(defaultNoteColor == "0") defaultNoteColor = "#FFFF99";
-	        if(defaultNoteColor == "1") defaultNoteColor = "#FF9956";
-	        if(defaultNoteColor == "2") defaultNoteColor = "#57BCD9";
-	        if(defaultNoteColor == "3") defaultNoteColor = "#B0FF56";
-	        if(defaultNoteColor == "4") defaultNoteColor = "#CB98FF";
-	        if(defaultNoteColor == "5") defaultNoteColor = "#ECE5FC";
-	
-	        var defaultTextColor = localSticky[7];
-	        if(defaultTextColor == "0") defaultTextColor = "#000000";
-	        if(defaultTextColor == "1") defaultTextColor = "#7F5300";
-	        if(defaultTextColor == "2") defaultTextColor = "#00FF00";
-	        if(defaultTextColor == "3") defaultTextColor = "#FF0000";
-	        if(defaultTextColor == "4") defaultTextColor = "#ADADAD";
-	        if(defaultTextColor == "5") defaultTextColor = "#FFFFFF";
-			
-			stickiesString += curl + "`" + newStickyText + "`" + localSticky[2] + "`" + localSticky[3] + "`" + localSticky[4] + "`" + localSticky[5] + "`" + defaultNoteColor + "`" + defaultTextColor + "\n";
-		}
-	}
-	
-	var stream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
-   
-    var convstream = Components.classes["@mozilla.org/intl/converter-output-stream;1"].createInstance(Components.interfaces.nsIConverterOutputStream);
-
-    var localfile = this.stickiesNSLocalFile(chromedir + "stickies");
-    stream.init(localfile, 0x02 | 0x08 | 0x20, 0664, 0);
-	convstream.init(stream, "UTF8", 0, 0x0000);
-    convstream.writeString(stickiesString);
-    convstream.close();
-    stream.close();
-
+saveAllStickies : function ()
+{	
+	var chromedir = internoteUtilities.getSaveDirectory();
+    internoteUtilities.saveStringToFilename(this.generateStringOfNotes(), chromedir + "stickies");
 },
 
 loadStickies : function(newLocation)
 {
 	this.stickiesDataArray = new Array();
-    //var stream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
-     
-    //var siStream = Components.classes['@mozilla.org/scriptableinputstream;1'].createInstance(Components.interfaces.nsIScriptableInputStream);
-    
-    var stream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
-     
-	//var siStream = Components.classes['@mozilla.org/scriptableinputstream;1'].createInstance(Components.interfaces.nsIScriptableInputStream);
-	
-	var siStream = Components.classes["@mozilla.org/intl/converter-input-stream;1"].createInstance(Components.interfaces.nsIConverterInputStream);
-    
-    var localfile = this.stickiesNSLocalFile(newLocation);
-    
-    if(localfile.exists())
-    {
-	    stream.init(localfile, 0x01, 0, 0);
-		//siStream.init(stream);
-		siStream.init(stream, "UTF8", 1024, Components.interfaces.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
-		//var data = siStream.read(-1);
-		var data = "";
-		
-		var str = {};
-		while (siStream.readString(4096, str) != 0)
-		{
-		data += str.value;
-		}
-		siStream.close();
-		stream.close();
-   	}
+	    
+    if(internoteUtilities.createNSLocalFile(newLocation).exists())
+	    var data = internoteUtilities.readStringFromFilename(newLocation);
    	else
-   	{
    		return false;
-   	}
     
     this.stickiesDataArray = data.split("\n");
         
     return true;
 },
 
-loadData : function()
+loadData : function ()
 {
 	var currentIndex = document.getElementById("elementList").currentIndex;
 	
@@ -311,7 +201,7 @@ loadData : function()
 	}
 },
 
-loadSearchData : function()
+loadSearchData : function ()
 {
 	var currentIndex = document.getElementById("resultsList").currentIndex;
 	var noteIndex = this.searchMapping[currentIndex];
@@ -335,7 +225,7 @@ loadSearchData : function()
 	}
 },
 
-updateCurrent : function()
+updateCurrent : function ()
 {
 	var noteUrlVal = document.getElementById("noteURL").value;
 	var noteTextVal = document.getElementById("noteText").value;
@@ -360,7 +250,7 @@ updateCurrent : function()
 	}
 },
 
-deleteNote : function()
+deleteNote : function ()
 {
 	if(this.treeView.isContainer(currentIndex)) return;
 	
@@ -412,7 +302,7 @@ deleteNote : function()
 	return;
 },
 
-resetNoteLocation : function()
+resetNoteLocation : function ()
 {
 	if(this.treeView.isContainer(currentIndex)) return;
 	
@@ -425,7 +315,7 @@ resetNoteLocation : function()
 	return;
 },
 
-checkForOrphans : function()
+checkForOrphans : function ()
 {
 	// check for containers with no children, and delete them!
 
@@ -445,7 +335,7 @@ checkForOrphans : function()
 	}
 },
 
-openURL : function()
+openURL : function ()
 {
 	var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
 	var noteurl = document.getElementById("noteURL").value;
@@ -480,110 +370,90 @@ openURL : function()
 	}
 },
 
-printNotes : function()
+exportNotes : function ()
 {
-	var myDoc = document.getElementById("printbrowser").contentDocument;
+	var nsIFilePicker = Components.interfaces.nsIFilePicker;
+	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+	fp.init(window, "Save Internote File", nsIFilePicker.modeSave);
 	
-	myDoc.open();
-	myDoc.close();
-	
-	myDoc.title="Internote";
-	var notehtml = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:html");
-	var notebody = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:body");
-	var notediv = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
-	notediv.setAttribute("style", "width: 100%; font-family: sans-serif;");
-	
-	var bigtable;
-	var wholetr;
-	
-	var curl = "";
-	
-	var start = new Object();
-	var end = new Object();
-	var numRanges = this.treeView.selection.getRangeCount();
-	
-	for (var t=0; t<numRanges; t++)
+	var res = fp.show();
+	if (res == nsIFilePicker.returnOK || res == nsIFilePicker.returnReplace)
 	{
-		this.treeView.selection.getRangeAt(t,start,end);
-		for (var v=start.value; v<=end.value; v++)
-		{
-			var sticky = this.treeView.visibleData[v][3];
-			var localSticky = this.stickiesData[sticky];
-			
-			if(curl != localSticky[0])
-			{
-				if(curl != "")
-				{
-					notediv.appendChild(bigtable);
-				}
-				
-				bigtable = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
-				bigtable.setAttribute("style", "border: 1px solid lightgray; padding: 15px; margin: 5px;");
-				bigtable.setAttribute("width", "100%");
-				wholetr = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
-				wholetr.setAttribute("style", "color: gray; margin-bottom: 10px; border-bottom: 1px solid #DDD; font-size: 12px;");
-				wholetr.appendChild(myDoc.createTextNode(localSticky[0]));
-				wholetr.appendChild(myDoc.createElement("br"));
-				bigtable.appendChild(wholetr);
-			}
-			
-			curl = localSticky[0];
-			
-			if(localSticky)
-			{
-				var myStickyText = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:pre");
-				myStickyText.setAttribute("style", "border-left: 1px solid " + localSticky[6] + "; padding: 5px 0px 5px 10px; margin-left: 10px; font-family: sans-serif sans;");
-				myStickyText.appendChild(myDoc.createTextNode(localSticky[1]));
-				bigtable.appendChild(myStickyText);
-			}
-		}
+		internoteUtilities.saveStringToFilename(this.generateStringOfNotes(), fp.file.path);
 	}
+},
+
+exportNotesHTML : function ()
+{
+	var noteHTML = this.generateHTMLOfNotes();
 	
-	if(numRanges == 0)
+	var nsIFilePicker = Components.interfaces.nsIFilePicker;
+	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+	fp.init(window, "Save HTML File", nsIFilePicker.modeSave);
+	fp.defaultExtension = "html";
+	fp.appendFilters(nsIFilePicker.filterHTML);
+	
+	var res = fp.show();
+	if (res == nsIFilePicker.returnOK || res == nsIFilePicker.returnReplace)
 	{
-		for(sticky in this.stickiesData)
-		{
-			var localSticky = this.stickiesData[sticky];
-			
-			if(curl != localSticky[0])
-			{
-				if(curl != "")
-				{
-					notediv.appendChild(bigtable);
-				}
-				
-				bigtable = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
-				bigtable.setAttribute("style", "border: 1px solid lightgray; padding: 15px; margin: 5px;");
-				bigtable.setAttribute("width", "100%");
-				wholetr = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
-				wholetr.setAttribute("style", "color: gray; margin-bottom: 10px; border-bottom: 1px solid #DDD; font-size: 12px;");
-				wholetr.appendChild(myDoc.createTextNode(localSticky[0]));
-				wholetr.appendChild(myDoc.createElement("br"));
-				bigtable.appendChild(wholetr);
-			}
-			
-			curl = localSticky[0];
-			
-			if(localSticky)
-			{
-				var myStickyText = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:pre");
-				myStickyText.setAttribute("style", "border-left: 1px solid " + localSticky[6] + "; padding: 5px 0px 5px 10px; margin-left: 10px; font-family: sans-serif sans;");
-				myStickyText.appendChild(myDoc.createTextNode(localSticky[1]));
-				bigtable.appendChild(myStickyText);
-			}
-		}
+		var fn = fp.file.path;
+		if(!fn.match(/\.html^/))
+			fn += ".html";
+		
+		internoteUtilities.saveStringToFilename(noteHTML, fn);
 	}
+},
+
+exportNotesText : function ()
+{
+	var noteText = this.generateTextOfNotes();
 	
-	notediv.appendChild(bigtable);
-	notebody.appendChild(notediv);
-	notehtml.appendChild(notebody);
-	myDoc.body.appendChild(notehtml);
+	var nsIFilePicker = Components.interfaces.nsIFilePicker;
+	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+	fp.init(window, "Save Text File", nsIFilePicker.modeSave);
+	fp.defaultExtension = "txt";
+	fp.appendFilters(nsIFilePicker.filterText);
 	
-	//document.getElementById("printbrowser").contentWindow.focus();
+	var res = fp.show();
+	if (res == nsIFilePicker.returnOK || res == nsIFilePicker.returnReplace)
+	{
+		var fn = fp.file.path;
+		if(!fn.match(/\.txt^/))
+			fn += ".txt";
+		
+		internoteUtilities.saveStringToFilename(noteText, fn);
+	}
+},
+
+exportNotesBookmark : function ()
+{
+	var noteText = this.generateBookmarksOfNotes();
+	
+	var nsIFilePicker = Components.interfaces.nsIFilePicker;
+	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+	fp.init(window, "Save Bookmark File", nsIFilePicker.modeSave);
+	fp.defaultExtension = "html";
+	fp.appendFilters(nsIFilePicker.filterHTML);
+	
+	var res = fp.show();
+	if (res == nsIFilePicker.returnOK || res == nsIFilePicker.returnReplace)
+	{
+		var fn = fp.file.path;
+		if(!fn.match(/\.html^/))
+			fn += ".html";
+		
+		internoteUtilities.saveStringToFilename(noteText, fn);
+	}
+},
+
+printNotes : function ()
+{
+	this.generateHTMLOfNotes();
+	
 	var frame = document.getElementById("printbrowser").contentWindow;
 	var req = frame.QueryInterface(Components.interfaces.nsIInterfaceRequestor);
 	var wbprint = req.getInterface(Components.interfaces.nsIWebBrowserPrint);
-	var settings = PrintUtils.getPrintSettings(); // from chrome://global/content/printUtils.js
+	var settings = PrintUtils.getPrintSettings();
 	try
 	{
 		wbprint.print(settings, null);
@@ -591,18 +461,9 @@ printNotes : function()
 	catch(e)
 	{
 	}
-	
-	//document.getElementById("printbrowser").setAttribute("hidden", "true");
-
-	//document.getElementById("printbrowser").contentWindow.print();
 },
 
-exportNotes : function()
-{
-	this.nyi();
-},
-
-updateSearchResults : function()
+updateSearchResults : function ()
 {
 	var searchTerm = document.getElementById("searchFilter").value;
 	var searchResultsPane = document.getElementById("searchResultChildren");
@@ -650,6 +511,204 @@ updateSearchResults : function()
 	}
 },
 
+generateHTMLOfNotes : function ()
+{
+	var myDoc = document.getElementById("printbrowser").contentDocument;
+	
+	myDoc.open();
+	myDoc.close();
+	
+	myDoc.title="Internote";
+	var notehtml = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:html");
+	var notebody = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:body");
+	var notediv = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+	notediv.setAttribute("style", "width: 100%; font-family: sans-serif;");
+	
+	var bigtable;
+	var wholetr;
+	
+	var curl = "";
+	
+	var start = new Object();
+	var end = new Object();
+	var numRanges = this.treeView.selection.getRangeCount();
+	
+	for (var t=0; t<numRanges; t++)
+	{
+		this.treeView.selection.getRangeAt(t,start,end);
+		for (var v=start.value; v<=end.value; v++)
+		{
+			var sticky = this.treeView.visibleData[v][3];
+			var localSticky = this.stickiesData[sticky];
+			
+			if(curl != localSticky[0])
+			{
+				if(curl != "")
+				{
+					notediv.appendChild(bigtable);
+				}
+				
+				bigtable = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+				bigtable.setAttribute("style", "border: 1px solid gray; padding: 15px; margin: 5px;");
+				bigtable.setAttribute("width", "100%");
+				wholetr = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+				wholetr.setAttribute("style", "color: gray; margin-bottom: 10px; border-bottom: 1px dashed lightgray; font-size: 12px;");
+				wholetr.appendChild(myDoc.createTextNode(localSticky[0]));
+				wholetr.appendChild(myDoc.createElement("br"));
+				bigtable.appendChild(wholetr);
+			}
+			
+			curl = localSticky[0];
+			
+			if(localSticky)
+			{
+				var myStickyText = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:pre");
+				myStickyText.setAttribute("style", "border-left: 3px solid " + localSticky[6] + "; padding: 5px 0px 5px 10px; margin-left: 10px; font-family: sans-serif sans;");
+				myStickyText.appendChild(myDoc.createTextNode(localSticky[1]));
+				bigtable.appendChild(myStickyText);
+			}
+		}
+	}
+	
+	if(numRanges == 0)
+	{
+		for(sticky in this.stickiesData)
+		{
+			var localSticky = this.stickiesData[sticky];
+			
+			if(curl != localSticky[0])
+			{
+				if(curl != "")
+				{
+					notediv.appendChild(bigtable);
+				}
+				
+				bigtable = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+				bigtable.setAttribute("style", "border: 1px solid gray; padding: 15px; margin: 5px;");
+				bigtable.setAttribute("width", "100%");
+				wholetr = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+				wholetr.setAttribute("style", "color: gray; margin-bottom: 10px; border-bottom: 1px dashed lightgray; font-size: 12px;");
+				wholetr.appendChild(myDoc.createTextNode(localSticky[0]));
+				wholetr.appendChild(myDoc.createElement("br"));
+				bigtable.appendChild(wholetr);
+			}
+			
+			curl = localSticky[0];
+			
+			if(localSticky)
+			{
+				var myStickyText = myDoc.createElementNS("http://www.w3.org/1999/xhtml","html:pre");
+				myStickyText.setAttribute("style", "border-left: 3px solid " + localSticky[6] + "; padding: 5px 0px 5px 10px; margin-left: 10px; font-family: sans-serif sans;");
+				myStickyText.appendChild(myDoc.createTextNode(localSticky[1]));
+				bigtable.appendChild(myStickyText);
+			}
+		}
+	}
+	
+	notediv.appendChild(bigtable);
+	notebody.appendChild(notediv);
+	notehtml.appendChild(notebody);
+	myDoc.body.appendChild(notehtml);
+	
+	return myDoc.body.innerHTML;
+},
+
+generateStringOfNotes : function ()
+{
+	this.updateCurrent();
+	
+	var curl = "";
+	var stickiesString = "";
+	var sticky;
+	
+	for(sticky in this.stickiesData)
+	{
+		var localSticky = this.stickiesData[sticky];
+		
+		if(localSticky)
+		{
+			curl = localSticky[0];
+		
+			var newStickyText = localSticky[1].replace(/`/g, "'");
+			newStickyText = newStickyText.replace(/\n/g, "<br>");
+		
+			var defaultNoteColor = localSticky[6];
+			if(defaultNoteColor == "0") defaultNoteColor = "#FFFF99";
+			if(defaultNoteColor == "1") defaultNoteColor = "#FF9956";
+			if(defaultNoteColor == "2") defaultNoteColor = "#57BCD9";
+			if(defaultNoteColor == "3") defaultNoteColor = "#B0FF56";
+			if(defaultNoteColor == "4") defaultNoteColor = "#CB98FF";
+			if(defaultNoteColor == "5") defaultNoteColor = "#ECE5FC";
+			
+			var defaultTextColor = localSticky[7];
+			if(defaultTextColor == "0") defaultTextColor = "#000000";
+			if(defaultTextColor == "1") defaultTextColor = "#7F5300";
+			if(defaultTextColor == "2") defaultTextColor = "#00FF00";
+			if(defaultTextColor == "3") defaultTextColor = "#FF0000";
+			if(defaultTextColor == "4") defaultTextColor = "#ADADAD";
+			if(defaultTextColor == "5") defaultTextColor = "#FFFFFF";
+		
+			stickiesString += curl + "`" + newStickyText + "`" + localSticky[2] + "`" + localSticky[3] + "`" + localSticky[4] + "`" + localSticky[5] + "`" + defaultNoteColor + "`" + defaultTextColor + "\n";
+		}
+	}
+	
+	return stickiesString;
+},
+
+generateTextOfNotes : function ()
+{
+	this.updateCurrent();
+	
+	var curl = "";
+	var stickiesString = "";
+	var sticky;
+	
+	for(sticky in this.stickiesData)
+	{
+		var localSticky = this.stickiesData[sticky];
+		
+		if(localSticky)
+		{
+			curl = localSticky[0];
+		
+			var newStickyText = localSticky[1].replace(/`/g, "'");
+			newStickyText = newStickyText.replace(/\n/g, "<br>");
+		
+			stickiesString += curl + ": " + newStickyText + "\n";
+		}
+	}
+	
+	return stickiesString;
+},
+
+generateBookmarksOfNotes : function ()
+{
+	this.updateCurrent();
+	
+	var curl = "";
+	var stickiesString = "<!DOCTYPE NETSCAPE-Bookmark-file-1>\n\t<HTML>\n\t<META HTTP-EQUIV='Content-Type' CONTENT='text/html; charset=UTF-8'>\n\t<Title>Bookmarks</Title>\n\t<H1>Bookmarks</H1>\n\t<DT><H3 FOLDED>Bookmarks</H3>\n\t<DL><p>\n";
+	var sticky;
+	
+	for(sticky in this.stickiesData)
+	{
+		var localSticky = this.stickiesData[sticky];
+		
+		if(localSticky)
+		{
+			curl = localSticky[0];
+		
+			var newStickyText = localSticky[1].replace(/`/g, "'");
+			newStickyText = newStickyText.replace(/\n/g, "<br>");
+		
+			stickiesString += "\t\t<DT><A HREF=\"" + curl + "\">" + newStickyText + "</A>\n";
+		}
+	}
+	
+	stickiesString += "\t</DL><p>\n</HTML>";
+	
+	return stickiesString;
+},
+
 treeView : {
   urldata: null,
   visibleData: null,
@@ -664,7 +723,7 @@ treeView : {
   isContainerOpen: function(idx)     { try {if(this.visibleData[idx]) return this.visibleData[idx][2]; else return false;} catch(e) {return false;} },
   isContainerEmpty: function(idx)    { return false; },
   isSeparator: function(idx)         { return false; },
-  isSorted: function()               { return false; },
+  isSorted: function ()               { return false; },
   isEditable: function(idx, column)  { return false; },
 
   getParentIndex: function(idx) {
@@ -723,7 +782,7 @@ treeView : {
   getProgressMode : function(idx,column) {},
   getCellValue: function(idx, column) {},
   cycleHeader: function(col, elem) {},
-  selectionChanged: function() {},
+  selectionChanged: function () {},
   cycleCell: function(idx, column) {},
   performAction: function(action) {},
   performActionOnCell: function(action, index, column) {},
