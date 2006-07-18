@@ -17,7 +17,7 @@
 
   <vbox id="clientBox" flex="1">
     <label id="extensionName" crop="right" value="Internote" />
-    <label id="extensionVersion" crop="right" value="2.1"/>
+    <label id="extensionVersion" crop="right" value="2.1 beta"/>
     <description id="extensionDescription"/>
 
     <label id="extensionCreatorLabel">&creator.label;</label>

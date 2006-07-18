@@ -1,7 +1,7 @@
 <!ENTITY newnote.label "Nov opomnik">
 <!ENTITY newnote.tooltip "Nov opomnik">
 <!ENTITY newnote.accesskey "N">
-<!ENTITY internote.manager.accesskey "M">
+<!ENTITY internote.manager.accesskey "U">
 <!ENTITY noteprefs.label "Nastavitve Internote">
 <!ENTITY internote.manager.title "Upravitelj Internote">
 <!ENTITY internote.disable.label "Onemogoči Internote">

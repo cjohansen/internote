@@ -2,6 +2,9 @@
 <!ENTITY styleheader.label "便签风格">
 <!ENTITY generalheader.label "常规选项">
 <!ENTITY positionheader.label "位置选项">
+<!ENTITY locationheader.label "保存选项">
+<!ENTITY location.label "保存位置">
+<!ENTITY changelocation.label "确定位置">
 <!ENTITY defaultfontsize.label "默认字体大小">
 <!ENTITY defaultcolor.label "默认便签颜色">
 <!ENTITY defaulttextcolor.label "默认文字颜色">
@@ -53,3 +56,4 @@
 <!ENTITY internote.resetloc.label "重置位置">
 <!ENTITY internote.export.label "导出便签">
 <!ENTITY preferences.save.label "保存">
+<!ENTITY chooseFolder.label "浏览...">

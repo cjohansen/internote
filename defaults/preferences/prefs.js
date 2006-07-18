@@ -1,6 +1,5 @@
 pref("internote.defaultcolor", "0");
 pref("internote.defaulttextcolor", "0");
-pref("internote.superfluous-animation", true);
 pref("internote.transparency", true);
 pref("internote.defaultposition", "0");
 pref("internote.defaultsize", "1");

@@ -1,7 +1,10 @@
 <!ENTITY prefsheader.label "Internote">
-<!ENTITY styleheader.label "Notiz Stil">
+<!ENTITY styleheader.label "Notizstil">
 <!ENTITY generalheader.label "Allgemeine Einstellungen">
 <!ENTITY positionheader.label "Einstellungen zur Positionierung">
+<!ENTITY locationheader.label "Speichereinstellungen">
+<!ENTITY location.label "Speicherort">
+<!ENTITY changelocation.label "Ort festlegen">
 <!ENTITY defaultfontsize.label "Default Font Size">
 <!ENTITY defaultcolor.label "Standart Notiz Farbe">
 <!ENTITY defaulttextcolor.label "Standart TextFarbe">
@@ -53,3 +56,4 @@
 <!ENTITY internote.resetloc.label "Ort zurücksetzen">
 <!ENTITY internote.export.label "Exortiere Notizen">
 <!ENTITY preferences.save.label "Speichern">
+<!ENTITY chooseFolder.label "Durchsuchen ...">

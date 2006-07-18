@@ -137,7 +137,7 @@ function newStickyWithContents(stickytext, stickyleft, stickytop, stickywidth, s
 	var stickyhighlightable = internotePreferences.getDefaultHighlightable();
 	
 	var mainDiv = document.createElementNS("http://www.w3.org/1999/xhtml","html:div");
-	mainDiv.setAttribute("style", "overflow: hidden; width: " + stickywidth + "; height: " + stickyheight + "; position: fixed; top: " + stickytop + "; left: " + stickyleft + "; z-index: " + (getHighestNoteOrder() + 1) + "; font-weight: normal; font-size: 12pt; color: black; opacity: 0; display: none;");
+	mainDiv.setAttribute("style", "overflow: hidden; width: " + stickywidth + "; height: " + stickyheight + "; position: fixed; top: " + stickytop + "; left: " + stickyleft + "; z-index: " + (getHighestNoteOrder() + 1) + "; font-weight: normal; font-size: 12pt; color: black; opacity: 1;");
 	mainDiv.addEventListener("mousedown", stickiesStartDrag, false);
 	mainDiv.setAttribute("id", "stickies-stickynote" + stickiesCount);
 	
@@ -276,7 +276,7 @@ function newStickyWithContents(stickytext, stickyleft, stickytop, stickywidth, s
 	if(dosave)
 		saveOneSticky();
 	
-	internoteAnimation.stickiesInitializeNote(mainDiv);
+	stickiesDraw(mainDiv);
 }
 
 function updateStickyCount()
@@ -536,6 +536,9 @@ function clearAllNotes()
 		{
 			var currentNote = document.getElementById("stickies-stickynote" + i);
 			currentNote.parentNode.removeChild(currentNote);
+			currentNote.removeEventListener("mousedown", stickiesStartDrag, false);
+			document.removeEventListener("mousemove", stickiesDragGo, true);
+			document.removeEventListener("mouseup", stickiesDragStop, true);
 		}
 	}
 	
@@ -740,7 +743,7 @@ function updateAllNotes()
 		entry.QueryInterface(Components.interfaces.nsIFile);
 		if(entry.path.match(/stickies.+/))
 		{
-			if(entry.exists)
+			if(entry.exists())
 			{
 				var inputdata = internoteUtilities.readStringFromFilename(entry.path);
 				

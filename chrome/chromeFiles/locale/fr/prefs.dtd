@@ -2,6 +2,9 @@
 <!ENTITY styleheader.label "Style de la note">
 <!ENTITY generalheader.label "Préférences générales">
 <!ENTITY positionheader.label "Préférences de positionnnement">
+<!ENTITY locationheader.label "Préférences de sauvegarde">
+<!ENTITY location.label "Emplacement de la sauvegarde">
+<!ENTITY changelocation.label "Préciser l&apos;emplacement">
 <!ENTITY defaultfontsize.label "Taille de la police par défaut">
 <!ENTITY defaultcolor.label "Couleur par défaut de la note">
 <!ENTITY defaulttextcolor.label "Couleur par défaut du texte">
@@ -53,3 +56,4 @@
 <!ENTITY internote.resetloc.label "Réinitialiser l&apos;emplacement">
 <!ENTITY internote.export.label "Exporter les notes">
 <!ENTITY preferences.save.label "Enregistrer">
+<!ENTITY chooseFolder.label "Parcourir...">

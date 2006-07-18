@@ -20,6 +20,11 @@ stickyFlipButton.src = "chrome://internote/content/arrow.png";
 var stickiesBackgroundColorSwabs = new Array("#FFFF99", "#FF9956", "#57BCD9", "#B0FF56", "#CB98FF", "#ECE5FC");
 var stickiesTextColorSwabs = new Array("#000000", "#7F5300", "#00FF00", "#FF0000", "#ADADAD", "#FFFFFF");
 
+function stickiesGetTransparency()
+{
+    return internotePreferences.getDefaultTransparency();
+}
+
 stickyFlipButton.onload = function ()
 {
     var countEl = document.getElementById("stickies-count");
@@ -58,8 +63,10 @@ function stickiesDraw(container)
   	if(elid)
   	{
     	elid = "stickies-stickynote" + elid.replace(/stickies-[A-Za-z]+([0-9]+)/, "$1");
-    	stickiesEL = container = document.getElementById(elid);
+    	container = document.getElementById(elid);
+    	stickiesEL = container;
     }
+    
 
     container.getElementsByTagName('textarea').item(0).style.display = (getStickyFlipped(stickiesEL) == 0) ? "" : "none";
     
@@ -87,14 +94,14 @@ function stickiesDraw(container)
         
         // draw the background
         
-        if((internoteAnimation.stickiesGetTransparency(container) == 1) && !stickyIsDragging)
+        if((stickiesGetTransparency(container) == 1) && !stickyIsDragging)
         {
         	context.drawWindow(gBrowser.getBrowserAtIndex(gBrowser.mTabContainer.selectedIndex).contentWindow, cLeft - document.getElementById("content").browsers.item(0).boxObject.x, (cTop - (document.getElementById("content").browsers.item(0).boxObject.y)) + gBrowser.getBrowserAtIndex(gBrowser.mTabContainer.selectedIndex).contentWindow.scrollY, 400, 400, "rgb(0,0,0)");
         }
         
         // draw a round border
         
-        if((internoteAnimation.stickiesGetTransparency(container) == 1) && !stickyIsDragging)
+        if((stickiesGetTransparency(container) == 1) && !stickyIsDragging)
         	context.globalAlpha = .9;
         
         context.lineJoin = "round";
@@ -109,7 +116,7 @@ function stickiesDraw(container)
         
         context.globalAlpha = 1.0;
         
-        if(internoteAnimation.stickiesGetTransparency(container) == 1)
+        if(stickiesGetTransparency(container) == 1)
         {
             // draw glassy highlights (if transparency is on)
             
@@ -364,14 +371,19 @@ function stickiesStartDrag(event)
 	    if((internal_x > (elWidth-17)) && (internal_y < 17))
 	    {
 	    	if(stickiesAskBeforeDeletion())
-	    		internoteAnimation.stickiesCloseNote(stickiesEL);
+	    	{
+	    		stickiesEL.parentNode.removeChild(stickiesEL);
+	    		stickiesEL.removeEventListener("mousedown", stickiesStartDrag, false);
+	    	}
 	    }
 	    else
 	    {
 		   	if((internal_x < 17) && (internal_y > (elHeight-17)))
 		    {
-		        internoteAnimation.stickiesFlipNote(stickiesEL);
+		        //internoteAnimation.stickiesFlipNote(stickiesEL);
+		        setStickyFlipped(stickiesEL, !getStickyFlipped(stickiesEL));
 		        saveOneSticky();
+		        stickiesDraw(stickiesEL);
 		    }
 			else 
 			{
@@ -587,7 +599,7 @@ function stickiesAskBeforeDeletion()
 	}
 	else
 	{
-		return confirm("Are you sure you would like to delete this note?\nThis message can be disabled in Internote Preferences.");
+		return confirm(document.getElementById('internote-strings').getString("AskToSave"));
 	}
 	
 	return true;

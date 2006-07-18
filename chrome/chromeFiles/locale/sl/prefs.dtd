@@ -2,6 +2,9 @@
 <!ENTITY styleheader.label "Slog opomnika">
 <!ENTITY generalheader.label "Splošne nastavitve">
 <!ENTITY positionheader.label "Nastavitve položaja">
+<!ENTITY locationheader.label "Nastavitve shranjevanja">
+<!ENTITY location.label "Mesto shranjevanja">
+<!ENTITY changelocation.label "Določite mesto">
 <!ENTITY defaultfontsize.label "Privzeta velikost pisave">
 <!ENTITY defaultcolor.label "Privzeta barva opomnika">
 <!ENTITY defaulttextcolor.label "Privzeta barva besedila">
@@ -53,3 +56,4 @@
 <!ENTITY internote.resetloc.label "Ponastavi mesto">
 <!ENTITY internote.export.label "Izvozi opomnike">
 <!ENTITY preferences.save.label "Shrani">
+<!ENTITY chooseFolder.label "Prebrskaj ...">

@@ -58,3 +58,7 @@
 <!ENTITY preferences.save.label		"Save">
 <!ENTITY chooseFolder.label		"Browse...">
 <!ENTITY askBeforeDelete.label "Confirm Deletion">
+<!ENTITY exportInternote.label "to Internote file...">
+<!ENTITY exportBookmark.label "to Bookmark file...">
+<!ENTITY exportText.label "to Text file...">
+<!ENTITY exportHTML.label "to HTML file...">

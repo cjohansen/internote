@@ -374,7 +374,7 @@ exportNotes : function ()
 {
 	var nsIFilePicker = Components.interfaces.nsIFilePicker;
 	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-	fp.init(window, "Save Internote File", nsIFilePicker.modeSave);
+	fp.init(window, document.getElementById('internote-strings').getString("saveinternote"), nsIFilePicker.modeSave);
 	
 	var res = fp.show();
 	if (res == nsIFilePicker.returnOK || res == nsIFilePicker.returnReplace)
@@ -389,8 +389,8 @@ exportNotesHTML : function ()
 	
 	var nsIFilePicker = Components.interfaces.nsIFilePicker;
 	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-	fp.init(window, "Save HTML File", nsIFilePicker.modeSave);
-	fp.defaultExtension = "html";
+	fp.init(window, document.getElementById('internote-strings').getString("savehtml"), nsIFilePicker.modeSave);
+	fp.defaultExtension = "";
 	fp.appendFilters(nsIFilePicker.filterHTML);
 	
 	var res = fp.show();
@@ -410,8 +410,8 @@ exportNotesText : function ()
 	
 	var nsIFilePicker = Components.interfaces.nsIFilePicker;
 	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-	fp.init(window, "Save Text File", nsIFilePicker.modeSave);
-	fp.defaultExtension = "txt";
+	fp.init(window, document.getElementById('internote-strings').getString("savetext"), nsIFilePicker.modeSave);
+	fp.defaultExtension = "";
 	fp.appendFilters(nsIFilePicker.filterText);
 	
 	var res = fp.show();
@@ -431,8 +431,8 @@ exportNotesBookmark : function ()
 	
 	var nsIFilePicker = Components.interfaces.nsIFilePicker;
 	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-	fp.init(window, "Save Bookmark File", nsIFilePicker.modeSave);
-	fp.defaultExtension = "html";
+	fp.init(window, document.getElementById('internote-strings').getString("savebookmark"), nsIFilePicker.modeSave);
+	fp.defaultExtension = "";
 	fp.appendFilters(nsIFilePicker.filterHTML);
 	
 	var res = fp.show();

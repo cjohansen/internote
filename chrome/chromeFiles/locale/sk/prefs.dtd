@@ -2,6 +2,9 @@
 <!ENTITY styleheader.label "Štýl poznámky">
 <!ENTITY generalheader.label "Všeobecné nastavenia">
 <!ENTITY positionheader.label "Nastavenia pozície">
+<!ENTITY locationheader.label "Uloženie nastavení">
+<!ENTITY location.label "Uložiť umiestnenie">
+<!ENTITY changelocation.label "Vyberte umiestnenie">
 <!ENTITY defaultfontsize.label "Základná veľkosť písma">
 <!ENTITY defaultcolor.label "Implicitná farba poznámky">
 <!ENTITY defaulttextcolor.label "Implicitná farba textu">
@@ -49,7 +52,8 @@
 <!ENTITY internote.textcolor "Farba textu">
 <!ENTITY internote.noteactions.label "Akcie správy">
 <!ENTITY internote.delete.label "Zmazať správu">
-<!ENTITY internote.print.label "Vytalčiť správy">
+<!ENTITY internote.print.label "Vytlačiť správy">
 <!ENTITY internote.resetloc.label "Vynulovať polohu">
 <!ENTITY internote.export.label "Exportovať správy">
 <!ENTITY preferences.save.label "Uložiť">
+<!ENTITY chooseFolder.label "Prehľadávať...">

@@ -2,6 +2,9 @@
 <!ENTITY styleheader.label "Notitie stijl">
 <!ENTITY generalheader.label "Algemene voorkeuren">
 <!ENTITY positionheader.label "Positie voorkeuren">
+<!ENTITY locationheader.label "Opslag voorkeuren">
+<!ENTITY location.label "Locatie opslaan">
+<!ENTITY changelocation.label "Locatie specificeren">
 <!ENTITY defaultfontsize.label "Standaard letterypegrootte">
 <!ENTITY defaultcolor.label "Standaard notitiekleur">
 <!ENTITY defaulttextcolor.label "Standaard tekstkleur">
@@ -53,3 +56,4 @@
 <!ENTITY internote.resetloc.label "Locatie herstellen">
 <!ENTITY internote.export.label "Notities exporteren">
 <!ENTITY preferences.save.label "Bewaren">
+<!ENTITY chooseFolder.label "Bladeren...">

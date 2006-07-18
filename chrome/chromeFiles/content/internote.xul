@@ -7,9 +7,7 @@
 
 <overlay id="internote" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml">
 <script type="application/x-javascript" src="chrome://internote/content/internote-content.js"></script>
-<script type="application/x-javascript" src="chrome://internote/content/internote-animation.js"></script>
 <script type="application/x-javascript" src="chrome://internote/content/internote-preferences.js"></script>
-<script type="application/x-javascript" src="chrome://internote/content/internote-output.js"></script>
 <script type="application/x-javascript" src="chrome://internote/content/internote-extension.js"></script>
 <script type="application/x-javascript" src="chrome://internote/content/internote-utilities.js"></script>
 

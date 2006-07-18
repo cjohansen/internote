@@ -1,7 +1,7 @@
 <!ENTITY newnote.label "Новая заметка">
 <!ENTITY newnote.tooltip "Новая заметка">
 <!ENTITY newnote.accesskey "Н">
-<!ENTITY internote.manager.accesskey "M">
+<!ENTITY internote.manager.accesskey "У">
 <!ENTITY noteprefs.label "Предпочтения Internote">
 <!ENTITY internote.manager.title "Управление Internote">
 <!ENTITY internote.disable.label "Отключить Internote">

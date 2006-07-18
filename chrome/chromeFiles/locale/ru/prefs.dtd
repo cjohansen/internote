@@ -2,6 +2,9 @@
 <!ENTITY styleheader.label "Стиль заметок">
 <!ENTITY generalheader.label "Основные предпочтения">
 <!ENTITY positionheader.label "Предпочтения размещения на экране">
+<!ENTITY locationheader.label "Предпочтения хранения">
+<!ENTITY location.label "Сохранение местоположения">
+<!ENTITY changelocation.label "Определение местоположения">
 <!ENTITY defaultfontsize.label "Размер текста по-умолчанию">
 <!ENTITY defaultcolor.label "Цвет заметки по-умолчанию">
 <!ENTITY defaulttextcolor.label "Цвет текста по-умолчанию">
@@ -53,3 +56,4 @@
 <!ENTITY internote.resetloc.label "Вернуть местоположение">
 <!ENTITY internote.export.label "Экспорт заметок">
 <!ENTITY preferences.save.label "Сохранить">
+<!ENTITY chooseFolder.label "Обзор...">

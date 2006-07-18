@@ -14,7 +14,6 @@
 			<preference id="defaultPositionPreference" name="internote.defaultposition" type="string"/>
 			<preference id="defaultSizePreference" name="internote.defaultsize" type="string"/>
 			<preference id="transparencyPreference" name="internote.transparency" type="bool"/>
-			<preference id="animPreference" name="internote.superfluous-animation" type="bool"/>
 			<preference id="highlightablePreference" name="internote.highlightable" type="bool"/>
 			<preference id="scrollbarPreference" name="internote.usescrollbar" type="bool"/>
 			<preference id="statusbarPreference" name="internote.usestatusbar" type="bool"/>
@@ -97,7 +96,6 @@
 			<groupbox flex="1">
 				<caption label="&generalheader.label;"/>
 				<vbox align="left">
-					<checkbox id="animationCheckBox" preference="animPreference" label="&useanimation.label;" />
 					<checkbox id="defaultTransCheckBox" preference="transparencyPreference" label="&defaulttrans.label;" />
 					<checkbox id="highlightableCheckBox" preference="highlightablePreference" label="&defaulthighlightable.label;" />
 					<checkbox id="scrollbarCheckBox" preference="scrollbarPreference" label="&usescrollbar.label;" />
@@ -115,4 +113,7 @@
 			</groupbox>
 		</vbox>
 	</prefpane>
+<stringbundleset id="stringbundleset">
+	<stringbundle id="internote-strings" src="chrome://internote/locale/internote.properties"/>
+</stringbundleset>
 </prefwindow>

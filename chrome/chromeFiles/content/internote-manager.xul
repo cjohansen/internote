@@ -21,10 +21,10 @@
 
 <popupset>
   <popup id="exportMenu">
-    <menuitem label="to Internote file..." oncommand="internoteManager.exportNotes();"/>
-    <menuitem label="to Bookmark file..." oncommand="internoteManager.exportNotesBookmark();"/>
-    <menuitem label="to Text file..." oncommand="internoteManager.exportNotesText();"/>
-    <menuitem label="to HTML file..." oncommand="internoteManager.exportNotesHTML();"/>
+    <menuitem label="&exportInternote.label;" oncommand="internoteManager.exportNotes();"/>
+    <menuitem label="&exportBookmark.label;" oncommand="internoteManager.exportNotesBookmark();"/>
+    <menuitem label="&exportText.label;" oncommand="internoteManager.exportNotesText();"/>
+    <menuitem label="&exportHTML.label;" oncommand="internoteManager.exportNotesHTML();"/>
   </popup>
 </popupset>
         
@@ -111,4 +111,7 @@
 		</groupbox>
 	</vbox>
 </hbox>
+<stringbundleset id="stringbundleset">
+	<stringbundle id="internote-strings" src="chrome://internote/locale/internote.properties"/>
+</stringbundleset>
 </dialog>

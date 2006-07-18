@@ -77,24 +77,6 @@ getDefaultHighlightable : function()
     }
 },
 
-getDefaultAnimation : function()
-{
-    var prefs = Components.classes["@mozilla.org/preferences-service;1"].
-                getService(Components.interfaces.nsIPrefService).
-                getBranch("internote.");
-    if(prefs.getPrefType("superfluous-animation") !=0)
-    {
-        if(prefs.getBoolPref("superfluous-animation"))
-            return true;
-        else
-            return false;
-    }
-    else
-    {
-        return false;
-    }
-},
-
 getScrollbar : function()
 {
     var prefs = Components.classes["@mozilla.org/preferences-service;1"].
@@ -276,7 +258,7 @@ chooseSaveLocation : function ()
 {
 	const nsIFilePicker = Components.interfaces.nsIFilePicker;
 	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-	fp.init(window, "Choose Save Location...", nsIFilePicker.modeGetFolder);
+	fp.init(window, document.getElementById('internote-strings').getString("chooselocation"), nsIFilePicker.modeGetFolder);
 	
 	const nsILocalFile = Components.interfaces.nsILocalFile;
 	var customDirPref = this.getDefaultSaveLocation();
@@ -307,6 +289,10 @@ moveActiveFolder : function (movetype)
 	try
 	{
 		var defaultsave = internotePreferences.getDefaultSaveLocation();
+		
+		if(defaultsave == "")
+			return;
+			
 		var chromedir = Components.classes["@mozilla.org/file/directory_service;1"].createInstance(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsIFile).path;
 		
 		if(chromedir.match(/\\/))
@@ -342,7 +328,7 @@ loadPrefs : function ()
 
 updateActiveFolderChooser : function ()
 {
-	var active = this.getSetSaveLocation();
+	var active = document.getElementById("changelocationCheckBox").checked;
 	var opac = (active == true) ? 1 : 0;
 	document.getElementById("saveFolderField").style.opacity = opac;
 	document.getElementById("chooseFolder").style.opacity = opac;
@@ -350,7 +336,7 @@ updateActiveFolderChooser : function ()
 
 updateActiveFolderChooserClick : function ()
 {
-	var active = this.getSetSaveLocation();
+	var active = document.getElementById("changelocationCheckBox").checked;
 	var opac = (active == true) ? 1 : 0;
 	document.getElementById("saveFolderField").style.opacity = opac;
 	document.getElementById("chooseFolder").style.opacity = opac;
@@ -359,7 +345,7 @@ updateActiveFolderChooserClick : function ()
 
 updateActiveFolderChooserSlow : function ()
 {
-	setTimeout('internotePreferences.updateActiveFolderChooserClick()', 10);
+	setTimeout('internotePreferences.updateActiveFolderChooserClick()', 100);
 },
 
 saveSettings : function ()

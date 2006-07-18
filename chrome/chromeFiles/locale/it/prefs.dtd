@@ -2,7 +2,10 @@
 <!ENTITY styleheader.label "Stile nota">
 <!ENTITY generalheader.label "Opzioni generali">
 <!ENTITY positionheader.label "Opzioni posizionamento">
-<!ENTITY defaultfontsize.label "Default Font Size">
+<!ENTITY locationheader.label		"Preferenze di salvataggio">
+<!ENTITY location.label		"Salva posizione">
+<!ENTITY changelocation.label		"Specifare una posizione">
+<!ENTITY defaultfontsize.label "Formato predefinito testo">
 <!ENTITY defaultcolor.label "Colore predefinito nota">
 <!ENTITY defaulttextcolor.label "Colore predefinito testo">
 <!ENTITY defaultsize.label "Formato predefinito nota">
@@ -33,7 +36,7 @@
 <!ENTITY normalsize.label "normale">
 <!ENTITY largesize.label "grande">
 <!ENTITY giantsize.label "grandissimo">
-<!ENTITY megasize.label "Mega">
+<!ENTITY megasize.label "enorme">
 <!ENTITY internote.manager.title "Gestione Internote">
 <!ENTITY internote.list.title "Note">
 <!ENTITY internote.search.title "Cerca">
@@ -53,3 +56,4 @@
 <!ENTITY internote.resetloc.label "Ripristina posizione">
 <!ENTITY internote.export.label "Esporta note">
 <!ENTITY preferences.save.label "Salva">
+<!ENTITY chooseFolder.label "Sfoglia...">
