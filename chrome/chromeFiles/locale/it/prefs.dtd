@@ -4,7 +4,7 @@
 <!ENTITY positionheader.label "Opzioni posizionamento">
 <!ENTITY locationheader.label		"Preferenze di salvataggio">
 <!ENTITY location.label		"Salva posizione">
-<!ENTITY changelocation.label		"Specifare una posizione">
+<!ENTITY changelocation.label		"Specifica percorso">
 <!ENTITY defaultfontsize.label "Formato predefinito testo">
 <!ENTITY defaultcolor.label "Colore predefinito nota">
 <!ENTITY defaulttextcolor.label "Colore predefinito testo">
@@ -57,3 +57,8 @@
 <!ENTITY internote.export.label "Esporta note">
 <!ENTITY preferences.save.label "Salva">
 <!ENTITY chooseFolder.label "Sfoglia...">
+<!ENTITY askBeforeDelete.label "Chiedi conferma cancellazione">
+<!ENTITY exportInternote.label "in un file Internote...">
+<!ENTITY exportBookmark.label "in un segnalibro...">
+<!ENTITY exportText.label "in un file di testo...">
+<!ENTITY exportHTML.label "in un file HTML...">

@@ -37,7 +37,7 @@
 <!ENTITY largesize.label "Velika">
 <!ENTITY giantsize.label "Ogromna">
 <!ENTITY megasize.label "Gromozanska">
-<!ENTITY internote.manager.title "Upravljalec Internote">
+<!ENTITY internote.manager.title "Upravitelj Internote">
 <!ENTITY internote.list.title "Opomniki">
 <!ENTITY internote.search.title "Iskanje">
 <!ENTITY internote.searchresults.title "Rezultati iskanja">
@@ -57,3 +57,8 @@
 <!ENTITY internote.export.label "Izvozi opomnike">
 <!ENTITY preferences.save.label "Shrani">
 <!ENTITY chooseFolder.label "Prebrskaj ...">
+<!ENTITY askBeforeDelete.label "Potrdi brisanje">
+<!ENTITY exportInternote.label "v datoteko Internote ...">
+<!ENTITY exportBookmark.label "v datoteko zaznamkov ...">
+<!ENTITY exportText.label "v datoteko z besedilom ...">
+<!ENTITY exportHTML.label "v datoteko HTML ...">

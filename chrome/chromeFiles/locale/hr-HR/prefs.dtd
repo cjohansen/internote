@@ -57,3 +57,8 @@
 <!ENTITY internote.export.label "Izvezi bilješke">
 <!ENTITY preferences.save.label "Spremi">
 <!ENTITY chooseFolder.label "Pregledaj">
+<!ENTITY askBeforeDelete.label "Potvrdi brisanje">
+<!ENTITY exportInternote.label "Internote datoteke">
+<!ENTITY exportBookmark.label "datoteke zabilješke">
+<!ENTITY exportText.label "tekst datoteke">
+<!ENTITY exportHTML.label "HTML datoteke">

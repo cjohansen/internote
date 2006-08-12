@@ -1,8 +1,8 @@
-<!ENTITY newnote.label "Ny Internote">
-<!ENTITY newnote.tooltip "Ny Internote">
-<!ENTITY newnote.accesskey "N">
-<!ENTITY internote.manager.accesskey "M">
+<!ENTITY newnote.label "Tilføj ny note">
+<!ENTITY newnote.tooltip "Tilføj ny note">
+<!ENTITY newnote.accesskey "n">
+<!ENTITY internote.manager.accesskey "m">
 <!ENTITY noteprefs.label "Internote indstillinger">
-<!ENTITY internote.manager.title "Internote-administration">
+<!ENTITY internote.manager.title "Internote administration">
 <!ENTITY internote.disable.label "Slå Internote fra">
 <!ENTITY internotehelp.label "Hjælp">

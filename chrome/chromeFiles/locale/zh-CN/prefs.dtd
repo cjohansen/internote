@@ -57,3 +57,8 @@
 <!ENTITY internote.export.label "导出便签">
 <!ENTITY preferences.save.label "保存">
 <!ENTITY chooseFolder.label "浏览...">
+<!ENTITY askBeforeDelete.label "确认删除">
+<!ENTITY exportInternote.label "内部便签文件...">
+<!ENTITY exportBookmark.label "书签文件...">
+<!ENTITY exportText.label "文本文件...">
+<!ENTITY exportHTML.label "HTML 文件...">

@@ -57,3 +57,8 @@
 <!ENTITY internote.export.label "Экспорт заметок">
 <!ENTITY preferences.save.label "Сохранить">
 <!ENTITY chooseFolder.label "Обзор...">
+<!ENTITY askBeforeDelete.label "Подтверждение удаления">
+<!ENTITY exportInternote.label "в Internote-файл...">
+<!ENTITY exportBookmark.label "в файл закладок...">
+<!ENTITY exportText.label "в текстовый файл...">
+<!ENTITY exportHTML.label "в HTML-файл...">

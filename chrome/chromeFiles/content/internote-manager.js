@@ -101,6 +101,7 @@ setupLoadedStickies : function ()
                 
                 // fix newline characters
                 attributeArray[1] = attributeArray[1].replace(/<br>/g, "\n");
+                attributeArray[10] = attributeArray[8];
                 
                 this.stickiesData.push(attributeArray);
             }
@@ -161,6 +162,7 @@ loadData : function ()
 	{
 		var noteIndex = this.treeView.visibleData[currentIndex][3];
 		document.getElementById("noteText").value = this.stickiesData[noteIndex][1];
+		//document.getElementById("noteDate").value = this.stickiesData[noteIndex][9];
 		document.getElementById("noteURL").value = this.stickiesData[noteIndex][0];
 		document.getElementById("colorEntryBox").value = this.stickiesBackgroundColorSwabs.indexOf(this.stickiesData[noteIndex][6]);
 		
@@ -178,6 +180,7 @@ loadData : function ()
 	else
 	{
 		document.getElementById("noteText").value = "";
+		//document.getElementById("noteDate").value = "";
 		document.getElementById("noteURL").value = "";
 		document.getElementById("colorEntryBox").value = 0;
 		document.getElementById("textColorEntryBox").value = 0;
@@ -648,7 +651,7 @@ generateStringOfNotes : function ()
 			if(defaultTextColor == "4") defaultTextColor = "#ADADAD";
 			if(defaultTextColor == "5") defaultTextColor = "#FFFFFF";
 		
-			stickiesString += curl + "`" + newStickyText + "`" + localSticky[2] + "`" + localSticky[3] + "`" + localSticky[4] + "`" + localSticky[5] + "`" + defaultNoteColor + "`" + defaultTextColor + "\n";
+			stickiesString += curl + "`" + newStickyText + "`" + localSticky[2] + "`" + localSticky[3] + "`" + localSticky[4] + "`" + localSticky[5] + "`" + defaultNoteColor + "`" + defaultTextColor + "`" + localSticky[10] + "`" + localSticky[9] + "\n";
 		}
 	}
 	

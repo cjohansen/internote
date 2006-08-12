@@ -2,6 +2,9 @@
 <!ENTITY styleheader.label "Note-stil">
 <!ENTITY generalheader.label "Generelle indstillinger">
 <!ENTITY positionheader.label "Positioneringsindstillinger">
+<!ENTITY locationheader.label "Opbevaringsindstillinger">
+<!ENTITY location.label "Gem-placering">
+<!ENTITY changelocation.label "Angiv placering">
 <!ENTITY defaultfontsize.label "Standard fontstørrelse">
 <!ENTITY defaultcolor.label "Standard notefarve">
 <!ENTITY defaulttextcolor.label "Standard tekstfarve">
@@ -53,3 +56,9 @@
 <!ENTITY internote.resetloc.label "Nulstil placering">
 <!ENTITY internote.export.label "Eksportér noter">
 <!ENTITY preferences.save.label "Gem">
+<!ENTITY chooseFolder.label "Gennemse...">
+<!ENTITY askBeforeDelete.label "Bekræft sletning">
+<!ENTITY exportInternote.label "til Internote-fil...">
+<!ENTITY exportBookmark.label "til Bogmærke-fil...">
+<!ENTITY exportText.label "til Tekstfil...">
+<!ENTITY exportHTML.label "til HTML-fil...">

@@ -45,6 +45,8 @@ stickyFlipButton.onload = function ()
     }
 }
 
+// date is container.getElementsByTagName('input').item(5).value
+
 function getStickyFlipped(container)
 {
     return parseInt(container.getElementsByTagName('input').item(1).value, 10);
@@ -374,6 +376,7 @@ function stickiesStartDrag(event)
 	    	{
 	    		stickiesEL.parentNode.removeChild(stickiesEL);
 	    		stickiesEL.removeEventListener("mousedown", stickiesStartDrag, false);
+	    		saveOneSticky();
 	    	}
 	    }
 	    else

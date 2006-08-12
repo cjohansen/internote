@@ -57,3 +57,8 @@
 <!ENTITY internote.export.label "Exortiere Notizen">
 <!ENTITY preferences.save.label "Speichern">
 <!ENTITY chooseFolder.label "Durchsuchen ...">
+<!ENTITY askBeforeDelete.label "Confirm Deletion">
+<!ENTITY exportInternote.label "to Internote file...">
+<!ENTITY exportBookmark.label "to Bookmark file...">
+<!ENTITY exportText.label "to Text file...">
+<!ENTITY exportHTML.label "to HTML file...">

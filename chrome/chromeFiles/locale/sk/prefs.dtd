@@ -57,3 +57,8 @@
 <!ENTITY internote.export.label "Exportovať správy">
 <!ENTITY preferences.save.label "Uložiť">
 <!ENTITY chooseFolder.label "Prehľadávať...">
+<!ENTITY askBeforeDelete.label "Potvrdzovať odstránenie">
+<!ENTITY exportInternote.label "do Internote súboru...">
+<!ENTITY exportBookmark.label "do súboru záložiek...">
+<!ENTITY exportText.label "do textového súboru...">
+<!ENTITY exportHTML.label "do HTML súboru...">

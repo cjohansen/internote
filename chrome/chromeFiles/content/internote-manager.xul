@@ -66,6 +66,11 @@
 		<label value="&internote.go.label;" style="color: blue; text-decoration: underline;" onclick="internoteManager.openURL();" />
 		</hbox>
 		
+		<!--<hbox align="center">
+		<label control="noteDate" value="&internote.notedate;:" style="font-weight: bold;" width="100px" />
+		<textbox id="noteDate" flex="1" disabled="true" />
+		</hbox>-->
+		
 		<hbox flex="1">
 		<label control="noteText" value="&internote.notetext;:" style="font-weight: bold;" width="100px" />
 		<textbox id="noteText" flex="1" multiline="true" onkeydown="setTimeout('internoteManager.updateCurrent()', 50);" disabled="true" />

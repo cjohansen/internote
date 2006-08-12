@@ -12,7 +12,7 @@
 <!ENTITY defaultpos.label "Posición predeterminada de nota">
 <!ENTITY defaulttrans.label "Notas translúcidas">
 <!ENTITY useanimation.label "Notas animadas">
-<!ENTITY defaulthighlightable.label "Texto seleccionable (usar borde para moverlas)">
+<!ENTITY defaulthighlightable.label "Texto seleccionable (usar borde para mover)">
 <!ENTITY usescrollbar.label "Usar barra desplazamiento">
 <!ENTITY usestatusbar.label "Mostrar Internote en barra de estado">
 <!ENTITY banana.label "Plátano">
@@ -57,3 +57,8 @@
 <!ENTITY internote.export.label "Exportar notas">
 <!ENTITY preferences.save.label "Guardar">
 <!ENTITY chooseFolder.label "Examinar...">
+<!ENTITY askBeforeDelete.label "Confirmar borrar">
+<!ENTITY exportInternote.label "a archivo Internote...">
+<!ENTITY exportBookmark.label "a archivo marcadores...">
+<!ENTITY exportText.label "a archivo texto...">
+<!ENTITY exportHTML.label "a archivo HTML...">

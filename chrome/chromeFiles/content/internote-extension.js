@@ -121,7 +121,7 @@ function newSticky()
 	
 	noteTop += getBrowser().getBrowserAtIndex(gBrowser.mTabContainer.selectedIndex).contentWindow.scrollY;
 	
-	newStickyWithContents("", noteLeft + "px",noteTop + "px",noteWidth + "px",noteHeight + "px", internotePreferences.getDefaultColor(), internotePreferences.getDefaultTextColor(), 1, "", (new Date).getTime());
+	newStickyWithContents("", noteLeft + "px",noteTop + "px",noteWidth + "px",noteHeight + "px", internotePreferences.getDefaultColor(), internotePreferences.getDefaultTextColor(), 1, stickiesCount, "", (new Date).getTime());
 }
 
 function newStickyWithContents(stickytext, stickyleft, stickytop, stickywidth, stickyheight, stickycolor, stickytextcolor, dosave, sct, tags, mydate)
@@ -411,7 +411,7 @@ function setupLoadedStickies()
 				stickyUrls[line] = (attributeArray[0]);
 				// fix newline characters
 				attributeArray[1] = attributeArray[1].replace(/<br>/g, "\n");
-				newStickyWithContents(attributeArray[1], attributeArray[2], attributeArray[3], attributeArray[4], attributeArray[5], attributeArray[6], attributeArray[7], 0, line);
+				newStickyWithContents(attributeArray[1], attributeArray[2], attributeArray[3], attributeArray[4], attributeArray[5], attributeArray[6], attributeArray[7],  0, line, attributeArray[8], attributeArray[9]);
 			}
 		}
 	}
@@ -591,11 +591,13 @@ function disableInternote()
 	{
 		clearAllNotes();
 		document.getElementById("internote-disable-label").label = document.getElementById('internote-strings').getString("EnableInternote");
+		document.getElementById("internote-panel").src = "chrome://internote/content/newnote16bw.png";
 	}
 	else
 	{
 		stickiesInsertContents(null);
 		document.getElementById("internote-disable-label").label = document.getElementById('internote-strings').getString("DisableInternote");
+		document.getElementById("internote-panel").src = "chrome://internote/content/newnote16.png";
 	}
 }
 

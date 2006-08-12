@@ -57,3 +57,8 @@
 <!ENTITY internote.export.label "Notities exporteren">
 <!ENTITY preferences.save.label "Bewaren">
 <!ENTITY chooseFolder.label "Bladeren...">
+<!ENTITY askBeforeDelete.label "Verwijderen bevestigen">
+<!ENTITY exportInternote.label "naar Internote-bestand...">
+<!ENTITY exportBookmark.label "naar Bladwijzer-bestand...">
+<!ENTITY exportText.label "naar tekstbestand...">
+<!ENTITY exportHTML.label "naar HTML-bestand">
