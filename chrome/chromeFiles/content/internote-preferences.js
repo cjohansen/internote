@@ -307,7 +307,7 @@ moveActiveFolder : function (movetype)
 		
 		if(movetype == 0)
 		{
-			internoteUtilities.saveStringToFilename(internoteUtilities.readStringFromFilename(chromedir + "stickies"), internoteUtilities.getSaveDirectory() + "stickies");
+			internoteUtilities.saveStringToFilename(internoteUtilities.readStringFromFilename(chromedir + "stickies"), defaultsave + "stickies");
 		}
 		else
 		{
@@ -337,6 +337,10 @@ updateActiveFolderChooser : function ()
 updateActiveFolderChooserClick : function ()
 {
 	var active = document.getElementById("changelocationCheckBox").checked;
+	
+	if(active == true)
+		this.chooseSaveLocation();
+	
 	var opac = (active == true) ? 1 : 0;
 	document.getElementById("saveFolderField").style.opacity = opac;
 	document.getElementById("chooseFolder").style.opacity = opac;
